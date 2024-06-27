@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import Map from '$lib/components/Map.svelte';
 	import maintenance from '$lib/assets/maintenance.svg';
+	import { Turnstile } from 'svelte-turnstile';
 
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
@@ -74,6 +75,7 @@
 				{:else if processing}
 					<p style="color: grey;">Processing...</p>
 				{/if}
+				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"} theme="dark"/>
 			</div>
 		</form>
 	</div>

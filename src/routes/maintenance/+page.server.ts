@@ -2,8 +2,41 @@ import nodemailer, { type TransportOptions } from 'nodemailer';
 import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
+interface TokenValidateResponse {
+    'error-codes': string[];
+    success: boolean;
+    action: string;
+    cdata: string;
+}
+
 function emptyString(value: string | null | undefined) {
 	return value === null || value === undefined || value.replace(/\s/g, '') === '';
+}
+
+async function validateToken(token: string, secret: string) {
+    const response = await fetch(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                response: token,
+                secret: secret,
+            }),
+        },
+    );
+
+    const data: TokenValidateResponse = await response.json();
+
+    return {
+        // Return the status
+        success: data.success,
+
+        // Return the first error if it exists
+        error: data['error-codes']?.length ? data['error-codes'][0] : null,
+    };
 }
 
 /** @type {import('./$types').RequestHandler} */
@@ -14,18 +47,26 @@ export const actions = {
 		const email: string = data.get('email') as string;
 		const message: string = data.get('message') as string;
 		const unit: string = data.get('unit') as string;
-
-		console.log(name, email, message, unit);
-
+		const turnstile: string = data.get('cf-turnstile-response') as string;
+		console.log(name, email, message, unit, turnstile);
+		
 		if (emptyString(name) || emptyString(email) || emptyString(message) || emptyString(unit)) {
 			return fail(422, { error: 'Please fill out all fields.' });
+		}
+
+		// Check the key after, saves a wasted request :)
+		const SECRET_KEY = env.CF_TURNSTILE_SECRET || '';
+		const { success, error } = await validateToken(turnstile, SECRET_KEY);
+
+		if (!success) {
+			return fail(422, { error: "Bot validation failed :'(" });
 		}
 
 		try {
 			const transporter = nodemailer.createTransport({
 				host: 'smtp.office365.com',
 				secure: true,
-				port: 465,
+				port: 587,
 				auth: {
 					user: env.EMAIL_USER || '',
 					pass: env.EMAIL_PASS || ''
@@ -50,7 +91,7 @@ export const actions = {
 			console.log('Message Sent!');
 		} catch (error) {
 			console.error('Error sending email\n', error);
-			return fail(422, { error: 'Umm, something went wrong, please try again!' });
+			return fail(422, { error: 'Something goofed, please try again!' });
 		}
 
 		return redirect(303, '/maintenance?success=true');

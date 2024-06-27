@@ -2,8 +2,41 @@ import nodemailer, { type TransportOptions } from 'nodemailer';
 import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
+interface TokenValidateResponse {
+    'error-codes': string[];
+    success: boolean;
+    action: string;
+    cdata: string;
+}
+
 function emptyString(value: string | null | undefined) {
 	return value === null || value === undefined || value.replace(/\s/g, '') === '';
+}
+
+async function validateToken(token: string, secret: string) {
+    const response = await fetch(
+        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+        {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                response: token,
+                secret: secret,
+            }),
+        },
+    );
+
+    const data: TokenValidateResponse = await response.json();
+
+    return {
+        // Return the status
+        success: data.success,
+
+        // Return the first error if it exists
+        error: data['error-codes']?.length ? data['error-codes'][0] : null,
+    };
 }
 
 /** @type {import('./$types').RequestHandler} */
@@ -14,11 +47,21 @@ export const actions = {
 		const email: string = data.get('email') as string;
 		const message: string = data.get('message') as string;
 
-		console.log(name, email, message);
-
+		const turnstile: string = data.get('cf-turnstile-response') as string;
+		console.log(name, email, message, turnstile);
+		
 		if (emptyString(name) || emptyString(email) || emptyString(message)) {
 			return fail(422, { error: 'Please fill out all fields.' });
 		}
+
+		// Check the key after, saves a wasted request :)
+		const SECRET_KEY = env.CF_TURNSTILE_SECRET || '';
+		const { success, error } = await validateToken(turnstile, SECRET_KEY);
+
+		if (!success) {
+			return fail(422, { error: "Bot validation failed :'(" });
+		}
+
 
 		try {
 			const transporter = nodemailer.createTransport({
@@ -39,7 +82,7 @@ export const actions = {
 
 			const mailOptions = {
 				from: `"Enquiries" <${env.EMAIL_USER}>`,
-				to: 'info@astrabusinesscentre.co.uk',
+				to: 'j.white@cwberry.com',
 				subject: 'New Enquiry',
 				text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
 				html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`

@@ -63,6 +63,7 @@
 				{:else if processing}
 					<p style="color: grey;">Processing...</p>
 				{/if}
+				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"} theme="dark"/>
 			</div>
 		</form>
 	</div>
