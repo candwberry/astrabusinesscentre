@@ -24,15 +24,15 @@ export const actions = {
 		try {
 			const transporter = nodemailer.createTransport({
 				host: 'smtp.office365.com',
-				secure: false,
-				port: 587,
+				secure: true,
+				port: 465,
 				auth: {
 					user: env.EMAIL_USER || '',
 					pass: env.EMAIL_PASS || ''
 				},
 				tls: {
-					ciphers: 'SSLv3',
-					rejectUnAuthorized: false
+					ciphers: 'TLSv1.2',
+					rejectUnauthorized: true
 				},
 				debug: true,
 				logger: true
