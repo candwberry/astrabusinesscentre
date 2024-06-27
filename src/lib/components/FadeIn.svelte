@@ -5,7 +5,7 @@
 	let condition = false;
 	setTimeout(() => {
 		condition = true;
-	}, extraDelay + 100);
+	}, extraDelay);
 </script>
 
 {#if condition}
