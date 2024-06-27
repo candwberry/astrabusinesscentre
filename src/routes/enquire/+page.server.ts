@@ -59,9 +59,8 @@ export const actions = {
 		const { success, error } = await validateToken(turnstile, SECRET_KEY);
 
 		if (!success) {
-			return fail(422, { error: "Bot validation failed :'(" });
+			return fail(422, { error: "Bot validation failed :(" });
 		}
-
 
 		try {
 			const transporter = nodemailer.createTransport({

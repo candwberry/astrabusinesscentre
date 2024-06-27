@@ -4,7 +4,7 @@
 	import enquiry from '$lib/assets/enquiry.png';
 	import type { ActionData } from './$types';
 	import { Turnstile } from 'svelte-turnstile';
-	
+
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
 	let processing: boolean = false;
@@ -23,7 +23,17 @@
 		<div id="div">
 			<img id="bigImage" src={enquiry} alt="enquiry" />
 		</div>
-		<form use:enhance method="POST">
+		<form
+			method="POST"
+			use:enhance={() => {
+				processing = true;
+				return ({ update }) => {
+					update().finally(async () => { 
+						processing = false;
+					});
+				};
+			}}
+		>
 			<h1 style="margin-top: 0;">Get in touch</h1>
 			<h5>
 				Have an enquiry or something to discuss? Fill out the form below and our team will quickly
@@ -50,21 +60,19 @@
 					></textarea>
 				</div>
 			</div>
-			<div class="fr" style="align-items: center;">
+			<div class="fr" style="align-items: center; min-height: 65px; max-weight: 65px; ">
 				<button
 					type="submit"
-					on:click={() => {
-						processing = true;
-					}}>Send enquiry</button
+					>Send enquiry</button
 				>
 				{#if form?.error}
 					<p style="color: red;">{form.error}</p>
 				{:else if success}
-					<p style="color: green;">Email sent succesfully! Thankyou, we will be in touch.</p>
+					<p style="color: green;">Email sent succesfully! Thankyou!</p>
 				{:else if processing}
 					<p style="color: grey;">Processing...</p>
 				{/if}
-				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"} theme="dark"/>
+				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"}/>
 			</div>
 		</form>
 	</div>
@@ -193,7 +201,7 @@
 		}
 
 		p {
-			margin-top: 0.8em;
+			margin: 0.4em;
 		}
 
 		#bigImage {

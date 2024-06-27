@@ -30,7 +30,17 @@
 		<div id="div">
 			<Map bind:this={map} callback={handleMapInput} />
 		</div>
-		<form use:enhance method="POST">
+		<form
+			method="POST"
+			use:enhance={() => {
+				processing = true;
+				return ({ update }) => {
+					update().finally(async () => { 
+						processing = false;
+					});
+				};
+			}}
+		>
 			<h1 style="margin-top: 0;"><img src={maintenance} alt="" /> Got a problem?</h1>
 			<h5>Give us the details below and we'll sort it out as soon as possible.</h5>
 			<div class="fc">
@@ -75,7 +85,7 @@
 				{:else if processing}
 					<p style="color: grey;">Processing...</p>
 				{/if}
-				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"} theme="dark"/>
+				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"}/>
 			</div>
 		</form>
 	</div>
@@ -187,15 +197,23 @@
 		.fr {
 			flex-direction: column;
 		}
-
-		textarea {
-			height: 2rem;
-		}
 	}
 
 	@media (min-width: 1024px) {
 		#div {
 			width: 40%;
+		}
+
+		.fr {
+			flex-direction: column;
+		}
+
+		textarea {
+			height: 2rem;
+		}
+
+		p {
+			margin: 0.4em;
 		}
 	}
 </style>
