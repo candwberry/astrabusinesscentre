@@ -211,5 +211,9 @@
 		#div {
 			width: 0%;
 		}
+
+		button {
+			margin-bottom: 0.4em;
+		}
 	}
 </style>
