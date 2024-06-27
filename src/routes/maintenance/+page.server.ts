@@ -1,5 +1,6 @@
 import nodemailer, { type TransportOptions } from 'nodemailer';
 import { fail, redirect } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 
 function emptyString(value: string | null | undefined) {
 	return value === null || value === undefined || value.replace(/\s/g, '') === '';
@@ -26,8 +27,8 @@ export const actions = {
 				secure: false,
 				port: 587,
 				auth: {
-					user: process.env.EMAIL_USER || '',
-					pass: process.env.EMAIL_PASS || ''
+					user: env.EMAIL_USER || '',
+					pass: env.EMAIL_PASS || ''
 				},
 				tls: {
 					ciphers: 'SSLv3',
@@ -38,7 +39,7 @@ export const actions = {
 			} as TransportOptions);
 
 			const mailOptions = {
-				from: `"Facilities" <${process.env.EMAIL_USER}>`,
+				from: `"Facilities" <${env.EMAIL_USER}>`,
 				to: 'facilities@astrabusinesscentre.co.uk',
 				subject: 'Maintenance Request',
 				text: `Name: ${name}\nEmail: ${email}\nUnit: ${unit}\nMessage: ${message}`,
