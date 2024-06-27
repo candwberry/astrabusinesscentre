@@ -72,8 +72,8 @@ export const actions = {
 					pass: env.EMAIL_PASS || ''
 				},
 				tls: {
-					ciphers: 'SSLv3',
-					rejectUnAuthorized: false
+					ciphers: 'TLSv1.2',
+					rejectUnauthorized: true
 				},
 				debug: true,
 				logger: true
