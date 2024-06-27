@@ -3,7 +3,8 @@
 	import { page } from '$app/stores';
 	import enquiry from '$lib/assets/enquiry.png';
 	import type { ActionData } from './$types';
-
+	import { Turnstile } from 'svelte-turnstile';
+	
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
 	let processing: boolean = false;
