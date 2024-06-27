@@ -27,6 +27,7 @@
 		if (
 			mouseEvent.target instanceof HTMLButtonElement ||
 			mouseEvent.target instanceof HTMLAnchorElement
+			
 		) {
 			hoverElement = mouseEvent.target as HTMLElement;
 			const rect = hoverElement.getBoundingClientRect();
@@ -36,41 +37,20 @@
 			hover = true;
 			targetX = rect.left + rect.width / 2;
 			targetY = rect.top + rect.height / 2;
+		} else if (hover) {
+			hover = false;
+			width = 16;
+			height = 16;
 		}
 	};
 
 	const handleMouseLeave = () => {
-		hover = false;
-		hoverElement = null;
-		width = 16;
-		height = 16;
+		if (hover) {
+			hover = false;
+			width = 16;
+			height = 16;
+		}
 	};
-
-	onMount(() => {
-		const buttons: HTMLButtonElement[] = Array.from(document.querySelectorAll('button'));
-		buttons.forEach((el) => {
-			el.addEventListener('mouseenter', handleMouseEnter);
-			el.addEventListener('mouseleave', handleMouseLeave);
-		});
-
-		const links: HTMLAnchorElement[] = Array.from(document.querySelectorAll('a'));
-		links.forEach((el) => {
-			el.addEventListener('mouseenter', handleMouseEnter);
-			el.addEventListener('mouseleave', handleMouseLeave);
-		});
-
-		return () => {
-			buttons.forEach((el) => {
-				el.removeEventListener('mouseenter', handleMouseEnter);
-				el.removeEventListener('mouseleave', handleMouseLeave);
-			});
-
-			links.forEach((el) => {
-				el.removeEventListener('mouseenter', handleMouseEnter);
-				el.removeEventListener('mouseleave', handleMouseLeave);
-			});
-		};
-	});
 </script>
 
 <svelte:window on:mousemove={handleMouseMove} />
