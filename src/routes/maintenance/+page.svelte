@@ -215,5 +215,9 @@
 		p {
 			margin: 0.4em;
 		}
+
+		button {
+			margin-bottom: 0.4em;
+		}
 	}
 </style>
