@@ -157,7 +157,7 @@
 				<h6>WOW THAT IS A LOT</h6>
 			</div>
 			<div class="grid-item" style="border-bottom: 1px #d1d1d1 solid;">
-				<h1>0 GYPSIES</h1>
+				<h1>SUPER SECURE</h1>
 				<h6>THIS YEAR ON SITE</h6>
 			</div>
 			<div class="grid-item" style="border-bottom: 1px #d1d1d1 solid;">
