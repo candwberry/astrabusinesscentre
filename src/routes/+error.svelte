@@ -9,7 +9,7 @@
 </svelte:head>
 <main>
 	<h1>
-		{$page.status}
+		<span style="font-size: 4rem;">{$page.status}</span>
 		<br />
 		{$page.error?.message}
 	</h1>
