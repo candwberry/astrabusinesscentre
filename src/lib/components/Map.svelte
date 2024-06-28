@@ -9,15 +9,20 @@
 		callback(unit);
 	};
 
+	export let text: boolean = true;
 	export function getSelectedUnit() {
 		return selectedUnit;
 	}
 </script>
 
-{#if selectedUnit === 'NONE'}
-	<p>You <bold>must</bold> select your unit below.</p>
+{#if text}
+	{#if selectedUnit === 'NONE'}
+		<p>You <bold>must</bold> select your unit below.</p>
+	{:else}
+		<p>Your unit: {selectedUnit}</p>
+	{/if}
 {:else}
-	<p>Your unit: {selectedUnit}</p>
+	<div style="height: 64px"></div> <!-- Kind of padding.. -->
 {/if}
 <div class="container">
 	<svg
@@ -228,28 +233,6 @@
 				id="path164"
 				fill="#263746"
 				d="M-996.35-828.71l-4.13,13.07l17.54,6.08l4.59-13.18L-996.35-828.71z"
-			/>
-		</g>
-		<g id="g166" transform="translate(1211.2975,346.0872)">
-			<path
-				id="path168"
-				fill="none"
-				stroke="#263746"
-				stroke-width="10.6667"
-				stroke-miterlimit="13.3333"
-				d="M-943.97,95.21l0.77,41.27
-		"
-			/>
-		</g>
-		<g id="g170" transform="translate(1263.2616,346.0872)">
-			<path
-				id="path172"
-				fill="none"
-				stroke="#263746"
-				stroke-width="10.6667"
-				stroke-miterlimit="13.3333"
-				d="M-983.01,95.21l0.62,41.27
-		"
 			/>
 		</g>
 		<path id="path174" fill="#263746" d="M280.92,438.88h-14.37v-23.54h14.37V438.88z" />
@@ -782,13 +765,6 @@
 			font-family="'Arial-Black'"
 			font-size="9.4613px">F</text
 		>
-		<g id="g350" transform="translate(1208.6967,346.0872)">
-			<path
-				id="path352"
-				fill="#273746"
-				d="M-944.85,95.21l19.98-0.07v48.5l-21.13-0.49L-944.85,95.21z"
-			/>
-		</g>
 		<g id="g354" transform="translate(487.5933,1266.4121)">
 			<path
 				id="path356"
@@ -886,9 +862,10 @@
 		user-select: none;
 		-moz-user-select: none;
 		-webkit-user-select: none;
-		height: 400px;
+		height: 468px;
 		display: flex;
 		justify-content: center;
+		transform: translateY(-16px);
 	}
 
 	.map-area {

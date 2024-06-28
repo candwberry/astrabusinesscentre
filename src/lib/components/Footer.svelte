@@ -1,3 +1,4 @@
+<!-- Footer.svelte -->
 <script lang="ts">
 	import { page } from '$app/stores';
 
@@ -11,10 +12,12 @@
 
 <footer>
 	<div id="top">
+		<div>
 		{#if showEnquire}
 			<p>Accomplish anything with Astra.</p>
 			<a id="talktosales" href="/enquire">ENQUIRE HERE</a>
 		{/if}
+		</div>
 	</div>
 	<div id="socials">
 		<div style="display: flex; justify-content: left; gap: 1rem;">
@@ -92,6 +95,7 @@
 		color: black;
 		display: flex;
 		flex-direction: column;
+		position: relative;
 	}
 
 	#socials {
@@ -113,19 +117,27 @@
 
 	#top {
 		background-color: #081535;
-		clip-path: ellipse(75% 100% at center top);
-		height: 100px;
-		padding-bottom: 6rem;
+		clip-path: ellipse(60% 100% at center top);
+		height: 6rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		transform: translateY(-5px);
-		& > p {
+		transform: translate(0, -4px);
+
+		& > div > p {
 			color: white;
 			font-size: 1.5rem;
 			text-align: center;
 			background-color: #081535;
+		}
+
+		& > div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			transform: translateY(-28px);
 		}
 	}
 

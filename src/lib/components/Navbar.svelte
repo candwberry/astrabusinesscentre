@@ -1,3 +1,4 @@
+<!-- Navbar.svelte -->
 <script>
 	import logomini from '$lib/assets/logomini.svg';
 	import maintenance from '$lib/assets/maintenance.svg';

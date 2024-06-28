@@ -1,19 +1,27 @@
 <script lang="ts">
-	import type { ActionData } from './$types';
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import Map from '$lib/components/Map.svelte';
 	import maintenance from '$lib/assets/maintenance.svg';
+	import type { ActionData } from './$types';
 	import { Turnstile } from 'svelte-turnstile';
 
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
+	let processing: boolean = false;
 	let map: Map;
 	let unit: string = '';
-	let processing: boolean = false;
+	let showModal: boolean = false;
 
 	function handleMapInput(selectedUnit: string) {
 		unit = selectedUnit;
+		if (showModal) {
+			showModal = false;
+		}
+	}
+
+	function toggleModal() {
+		showModal = !showModal;
 	}
 
 	page.subscribe((value) => {
@@ -22,206 +30,352 @@
 </script>
 
 <svelte:head>
-	<title>Maintenance</title>
+	<meta name="title" content="Maintenance Request | Astra Business Centre" />
+	<meta
+		name="description"
+		content="Need maintenance for your unit? Submit a request at Astra Business Centre. We'll address your issue promptly. Contact us today!"
+	/>
+	<title>Maintenance at Astra</title>
 </svelte:head>
 
 <main>
-	<div>
-		<div id="div">
+	<div class="container">
+		<div class="map-column">
 			<Map bind:this={map} callback={handleMapInput} />
 		</div>
-		<form
-			method="POST"
-			use:enhance={() => {
-				processing = true;
-				return ({ update }) => {
-					update().finally(async () => {
-						processing = false;
-					});
-				};
-			}}
-		>
-			<h1 style="margin-top: 0;"><img src={maintenance} alt="" /> Got a problem?</h1>
-			<h5>Give us the details below and we'll sort it out as soon as possible.</h5>
-			<div class="fc">
-				<div class="fc">
-					<label for="name">Company</label>
-					<div class="input-container">
-						<input type="text" id="name" name="name" placeholder="C&W Berry" required />
+		<div class="form-column">
+			<form
+				method="POST"
+				use:enhance={() => {
+					processing = true;
+					return ({ update }) => {
+						update().finally(async () => {
+							processing = false;
+						});
+					};
+				}}
+			>
+				<h1><img src={maintenance} alt="" /> Got a problem?</h1>
+				<h5>
+					Give us the details below and we'll sort it out as soon as possible.
+				</h5>
+				<div style="margin: auto 0;">
+					<div class="form-grid">
+						<div class="form-field">
+							<label for="name">Company</label>
+							<input type="text" id="name" name="name" placeholder="C&W Berry" required />
+						</div>
+						<div class="form-field">
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" placeholder="david@cwberry.com" required />
+						</div>
+					</div>
+					<div class="form-field">
+						<label for="unit">Unit</label>
+						<div class="unit-input">
+							<input type="text" id="unit" name="unit" bind:value={unit} readonly required />
+							<button type="button" on:click={toggleModal} class="select-unit-btn">Select Unit</button>
+						</div>
+					</div>
+					<div class="form-field">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" placeholder="The roof has fallen." required></textarea>
 					</div>
 				</div>
-				<div class="fc">
-					<label for="email">Email</label>
-					<div class="input-container">
-						<input type="email" id="email" name="email" placeholder="david@cwberry.com" required />
+				<div class="form-actions">
+					<div id="turnstile-container">
+						<Turnstile
+							siteKey="0x4AAAAAAAdaq7baunr8wH5G"
+							forms={true}
+							formsField={'cf-turnstile-response'}
+							appearance={"interaction-only"}
+						/>
 					</div>
+					<button type="submit">Send request</button>
 				</div>
-			</div>
-			<div class="fc">
-				<label for="message">Message</label>
-				<div class="input-container">
-					<textarea id="message" name="message" placeholder="The roof has fallen." required
-					></textarea>
+				<div class="form-status">
+					{#if form?.error}
+						<p class="error">{form.error}</p>
+					{:else if success}
+						<p class="success">Request sent successfully! We'll be in touch shortly.</p>
+					{:else if processing}
+						<p class="processing">Processing...</p>
+					{/if}
 				</div>
-				<input
-					type="text"
-					style="opacity: 0; height:0; width: 0; position: absolute; top: 5rem; left: 5rem;"
-					name="unit"
-					bind:value={unit}
-					required
-				/>
-			</div>
-			<div class="fr" style="align-items: center;">
-				<button
-					type="submit"
-					on:click={() => {
-						processing = true;
-					}}>Send enquiry</button
-				>
-				{#if form?.error}
-					<p style="color: red;">{form.error}</p>
-				{:else if success}
-					<p style="color: green;">Email sent succesfully! Thankyou, we will be in touch.</p>
-				{:else if processing}
-					<p style="color: grey;">Processing...</p>
-				{/if}
-				<Turnstile
-					siteKey="0x4AAAAAAAdaq7baunr8wH5G"
-					forms={true}
-					formsField={'cf-turnstile-response'}
-				/>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 </main>
 
+{#if showModal}
+<div class="modal-overlay" on:click={toggleModal}>
+	<div class="modal-content" on:click|stopPropagation>
+		<Map bind:this={map} callback={handleMapInput} text={false}/>
+		<button class="close-modal" on:click={toggleModal}>Close</button>
+	</div>
+</div>
+{/if}
+
 <style>
-	button {
-		background-color: #ee6925;
-		color: white;
-		padding: 0.75rem 1rem;
-		border: none;
-		border-radius: 1rem;
-		cursor: pointer;
-		font-weight: bold;
+	main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 92vh; /* Accounting for the 8vh navbar */
+		padding: 0 1rem;
+		overflow: hidden;
 	}
 
-	img {
-		filter: invert(1);
-	}
-
-	input {
-		border: none;
-		background: transparent;
-		outline: none;
+	.container {
+		display: flex;
 		width: 100%;
+		max-width: 1200px;
+		height: 90%;
+		background-color: white;
+		border-radius: 1rem;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		color: black;
 	}
 
-	input::placeholder {
-		color: grey;
+	.map-column, .form-column {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.map-column {
+		padding-bottom: 0;
+		text-align: center;
+		flex: 1;
+		background-color: #f5f5f5;
+	}
+
+	.form-column {
+		flex: 2;
+		overflow-y: auto;
 	}
 
 	form {
-		width: 60%;
-		justify-content: start;
-		align-items: center;
-		height: 100%;
-		padding: 0 2rem;
-		padding-right: 1rem;
-	}
-
-	main {
+		display: flex;
 		flex-direction: column;
+		color: #081535;
+		height: 100%;
+	}
+
+	h1 {
+		font-size: 2rem;
+		margin: 0 0 0.5rem 0;
+		display: flex;
 		align-items: center;
-		justify-content: center;
-		position: relative;
-
-		& > div {
-			position: absolute;
-			color: black;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-			padding: 2em 1em;
-			border-radius: 1rem;
-			background-color: white;
-			height: 50vh;
-			width: calc(90%);
-			top: 5%;
-			z-index: 5;
-		}
 	}
 
-	p {
+	h1 img {
+		height: 1.5em;
+		margin-right: 0.5rem;
+		filter: invert(1);
+	}
+
+	h5 {
+		font-size: 1rem;
+		margin: 0 0 1rem 0;
+		font-weight: normal;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+	}
+
+	.form-field {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+	}
+
+	label {
+		margin-bottom: 0.25rem;
 		font-size: 0.9rem;
-		padding: 0;
-		margin: 0;
+		
 	}
 
-	textarea {
-		border: none;
-		background: transparent;
-		outline: none;
-		width: 100%;
-		height: 5rem;
-	}
-
-	/* Custom classes */
-
-	.input-container {
+	input, textarea {
+		padding: 0.5rem;
+		border: 1px solid #ccc;
+		border-radius: 0.25rem;
+		font-size: 0.9rem;
 		display: inline-block;
 		background-color: #f5f5f5;
 		padding: 10px;
 		border-radius: 1rem;
 	}
 
-	.fr {
+	input:active, input:focus, textarea:active, textarea:focus {
+		outline: grey auto 1px;
+	}
+
+	textarea {
+		height: 5rem;
+		resize: none;
+	}
+
+	.form-actions {
 		display: flex;
-		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 	}
 
-	.fc {
+	button {
+		background-color: #ee6925;
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border: none;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		font-weight: bold;
+		font-size: 0.9rem;
+	}
+
+	#turnstile-container {
 		display: flex;
-		flex-direction: column;
-		margin-bottom: 1em;
-		gap: 0.2em;
+		justify-content: center;
+		transform-origin: right;
 	}
 
-	/* Media Queries */
-	@media (max-width: 768px) {
-		h1,
-		h5 {
-			margin-top: 0;
+	.form-status {
+		font-size: 0.8rem;
+		text-align: center;
+	}
+
+	.form-status > p {
+		padding: 0;
+		margin-top: 0;
+	}
+
+	.error { color: red; }
+	.success { color: green; }
+	.processing { color: #081535; }
+
+	.unit-input {
+		display: flex;
+		align-items: center;
+	}
+
+	.unit-input input {
+		flex-grow: 1;
+	}
+
+	.select-unit-btn {
+		background-color: #081535;
+		color: white;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		font-size: 0.9rem;
+		margin: 0;
+		margin-left: 10px;
+	}
+
+	.modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+	}
+
+	.modal-content {
+		background-color: white;
+		padding: 2rem;
+		border-radius: 1rem;
+		width: 90%;
+		max-width: 600px;
+		max-height: 80vh;
+		overflow-y: auto;
+		color: black;
+	}
+
+	.close-modal {
+		margin-top: 1rem;
+		background-color: #ee6925;
+		color: white;
+		padding: 0.5rem 1rem;
+		border: none;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		font-size: 0.9rem;
+	}
+
+	@media (min-width: 1025px) {
+		.select-unit-btn {
+			display: none;
 		}
 	}
 
 	@media (max-width: 1024px) {
-		.fr {
-			flex-direction: column;
+		.map-column {
+			display: none;
+		}
+
+		.form-column {
+			flex: 1;
 		}
 	}
-
-	@media (min-width: 1024px) {
-		#div {
-			width: 40%;
+	@media (max-width: 768px) {
+		.form-grid {
+			grid-template-columns: 1fr;
+			gap: 1rem;
 		}
 
-		.fr {
+		h1 {
+			font-size: 1.5rem;
+		}
+
+		h5 {
+			font-size: 0.9rem;
+		}
+
+		.form-actions {
 			flex-direction: column;
-		}
-
-		textarea {
-			height: 2rem;
-		}
-
-		p {
-			margin: 0.4em;
+			align-items: stretch;
 		}
 
 		button {
-			margin-bottom: 0.4em;
+			margin-bottom: 1rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		main {
+			padding: 0.5rem;
+		}
+
+		.container {
+			height: 95%;
+		}
+
+		.map-column, .form-column {
+			padding: 1rem;
+		}
+
+		h1 {
+			font-size: 1.2rem;
+		}
+
+		h5 {
+			font-size: 0.8rem;
+		}
+
+		input, textarea, button {
+			font-size: 0.8rem;
 		}
 	}
 </style>
