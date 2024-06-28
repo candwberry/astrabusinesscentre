@@ -35,7 +35,7 @@
 			use:enhance={() => {
 				processing = true;
 				return ({ update }) => {
-					update().finally(async () => { 
+					update().finally(async () => {
 						processing = false;
 					});
 				};
@@ -85,7 +85,11 @@
 				{:else if processing}
 					<p style="color: grey;">Processing...</p>
 				{/if}
-				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"}/>
+				<Turnstile
+					siteKey="0x4AAAAAAAdaq7baunr8wH5G"
+					forms={true}
+					formsField={'cf-turnstile-response'}
+				/>
 			</div>
 		</form>
 	</div>

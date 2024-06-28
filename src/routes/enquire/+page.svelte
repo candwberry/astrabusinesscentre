@@ -15,6 +15,11 @@
 </script>
 
 <svelte:head>
+	<meta name="title" content="Enquire About Unit Rentals | Astra Business Centre" />
+	<meta
+		name="description"
+		content="Looking for office space? Enquire about renting units at [Your Company Name] Business Centre. Flexible options and prime locations. Contact us today!"
+	/>
 	<title>Enquire at Astra</title>
 </svelte:head>
 
@@ -28,7 +33,7 @@
 			use:enhance={() => {
 				processing = true;
 				return ({ update }) => {
-					update().finally(async () => { 
+					update().finally(async () => {
 						processing = false;
 					});
 				};
@@ -60,11 +65,15 @@
 					></textarea>
 				</div>
 			</div>
-			<div class="fr" style="align-items: center; min-height: 65px; max-weight: 65px; ">
-				<button
-					type="submit"
-					>Send enquiry</button
-				>
+			<div class="fr" style="align-items: center;">
+				<button type="submit">Send enquiry</button>
+				<div id="turnstile-container">
+					<Turnstile
+						siteKey="0x4AAAAAAAdaq7baunr8wH5G"
+						forms={true}
+						formsField={'cf-turnstile-response'}
+					/>
+				</div>
 				{#if form?.error}
 					<p style="color: red;">{form.error}</p>
 				{:else if success}
@@ -72,18 +81,12 @@
 				{:else if processing}
 					<p style="color: grey;">Processing...</p>
 				{/if}
-				<Turnstile siteKey="0x4AAAAAAAdaq7baunr8wH5G" forms={true} formsField={"cf-turnstile-response"}/>
 			</div>
 		</form>
 	</div>
 </main>
 
 <style>
-	#div {
-		height: 100%;
-		width: 40%;
-	}
-
 	button {
 		background-color: #ee6925;
 		color: white;
@@ -92,6 +95,7 @@
 		border-radius: 1rem;
 		cursor: pointer;
 		font-weight: bold;
+		margin-right: 0.5rem;
 	}
 
 	input {
@@ -120,9 +124,8 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
-
+		padding: 2rem;
 		& > div {
-			position: absolute;
 			color: black;
 			display: flex;
 			flex-direction: row;
@@ -132,8 +135,6 @@
 			border-radius: 1rem;
 			background-color: white;
 			height: 50vh;
-			width: calc(90%);
-			top: 5%;
 			z-index: 5;
 		}
 	}
@@ -142,6 +143,8 @@
 		font-size: 0.9rem;
 		padding: 0;
 		margin: 0;
+		margin-left: 0.5rem;
+		text-align: center;
 	}
 
 	textarea {
@@ -153,6 +156,20 @@
 	}
 
 	/* Custom classes */
+	#div {
+		height: 100%;
+		width: 40%;
+	}
+
+	#turnstile-container {
+		height: 65px;
+		width: 300px;
+		min-width: 300px;
+		max-width: 300px;
+		min-height: 65px;
+		max-height: 65px;
+	}
+
 	#bigImage {
 		width: 100%;
 		height: 100%;
@@ -214,6 +231,14 @@
 
 		button {
 			margin-bottom: 0.4em;
+		}
+
+		form {
+			width: 90%;
+		}
+
+		#turnstile-container {
+			margin: 0.1rem;
 		}
 	}
 </style>
