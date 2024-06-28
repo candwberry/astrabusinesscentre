@@ -160,6 +160,8 @@
 		display: flex;
 		flex-direction: column;
 		color: #081535;
+		height: 100%;
+		overflow-y: auto;
 	}
 
 	h1 {

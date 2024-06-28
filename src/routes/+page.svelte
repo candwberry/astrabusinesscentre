@@ -22,11 +22,29 @@
 	const handlePrevClick = () => {
 		carousel.goToPrev();
 	};
+
+	import { onMount } from 'svelte';
+	let isMobile: boolean;
+
+	onMount(() => {
+		const checkMobile = () => {
+		isMobile = window.innerWidth <= 768;
+		};
+		checkMobile();
+		window.addEventListener('resize', checkMobile);
+		return () => window.removeEventListener('resize', checkMobile);
+	});
 </script>
 
 <svelte:head>
 	<title>Astra Business Centre</title>
+	<meta title="title" content="Astra Business Centre" />
+	<meta
+		name="description"
+		content="Astra Business Centre is a business park located in the heart of the UK. We offer a range of services to help innovators build breakout companies."
+	/>
 </svelte:head>
+
 <main>
 	<section id="section0">
 		<div id="section0-0">

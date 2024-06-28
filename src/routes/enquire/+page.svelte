@@ -103,7 +103,6 @@
 		background-color: white;
 		border-radius: 1rem;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		height: 100%;
 		overflow: hidden;
 	}
 
@@ -160,9 +159,7 @@
 
 	.form-grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
-		margin-bottom: 1rem;
+		grid-template-columns: 1fr;
 	}
 
 	.form-field {
@@ -246,7 +243,7 @@
 	@media (max-width: 768px) {
 		.form-grid {
 			grid-template-columns: 1fr;
-			gap: 1rem;
+			gap: 0;
 		}
 
 		h1 {
@@ -263,8 +260,7 @@
 		}
 
 		button {
-			width: 100%;
-			margin-bottom: 0.4rem;
+			margin-bottom: 1rem;
 		}
 	}
 
