@@ -3,10 +3,10 @@ import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
 interface TokenValidateResponse {
-    'error-codes': string[];
-    success: boolean;
-    action: string;
-    cdata: string;
+	'error-codes': string[];
+	success: boolean;
+	action: string;
+	cdata: string;
 }
 
 function emptyString(value: string | null | undefined) {
@@ -14,29 +14,26 @@ function emptyString(value: string | null | undefined) {
 }
 
 async function validateToken(token: string, secret: string) {
-    const response = await fetch(
-        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-        {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({
-                response: token,
-                secret: secret,
-            }),
-        },
-    );
+	const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+		method: 'POST',
+		headers: {
+			'content-type': 'application/json'
+		},
+		body: JSON.stringify({
+			response: token,
+			secret: secret
+		})
+	});
 
-    const data: TokenValidateResponse = await response.json();
+	const data: TokenValidateResponse = await response.json();
 
-    return {
-        // Return the status
-        success: data.success,
+	return {
+		// Return the status
+		success: data.success,
 
-        // Return the first error if it exists
-        error: data['error-codes']?.length ? data['error-codes'][0] : null,
-    };
+		// Return the first error if it exists
+		error: data['error-codes']?.length ? data['error-codes'][0] : null
+	};
 }
 
 /** @type {import('./$types').RequestHandler} */
@@ -49,7 +46,7 @@ export const actions = {
 		const unit: string = data.get('unit') as string;
 		const turnstile: string = data.get('cf-turnstile-response') as string;
 		console.log(name, email, message, unit, turnstile);
-		
+
 		if (emptyString(name) || emptyString(email) || emptyString(message) || emptyString(unit)) {
 			return fail(422, { error: 'Please fill out all fields.' });
 		}
@@ -59,6 +56,7 @@ export const actions = {
 		const { success, error } = await validateToken(turnstile, SECRET_KEY);
 
 		if (!success) {
+			console.log(error);
 			return fail(422, { error: "Bot validation failed :'(" });
 		}
 
