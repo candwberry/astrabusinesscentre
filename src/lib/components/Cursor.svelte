@@ -23,11 +23,13 @@
 
 	const handleMouseEnter = (event: MouseEvent) => {
 		const mouseEvent = event as MouseEvent;
+		const target = mouseEvent.target as HTMLElement;
 		// Check target is link or button
 		if (
-			mouseEvent.target instanceof HTMLButtonElement ||
-			mouseEvent.target instanceof HTMLAnchorElement
-			
+			target instanceof HTMLButtonElement ||
+			target instanceof HTMLAnchorElement || 
+			target.parentElement instanceof HTMLButtonElement ||
+			target.parentElement instanceof HTMLAnchorElement	
 		) {
 			hoverElement = mouseEvent.target as HTMLElement;
 			const rect = hoverElement.getBoundingClientRect();
@@ -43,19 +45,11 @@
 			height = 16;
 		}
 	};
-
-	const handleMouseLeave = () => {
-		if (hover) {
-			hover = false;
-			width = 16;
-			height = 16;
-		}
-	};
 </script>
 
 <svelte:window on:mousemove={handleMouseMove} />
 <!-- This fires for all elements, but the other method I had did not catch new ones..-->
-<svelte:body on:mouseover={handleMouseEnter} on:mouseleave={handleMouseLeave} />
+<svelte:body on:mouseover={handleMouseEnter} />
 
 <div
 	style="
