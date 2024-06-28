@@ -1,3 +1,4 @@
+<!-- /+page.svelte -->
 <script lang="ts">
 	import office from '$lib/assets/office.jpeg';
 	import logomini from '$lib/assets/logomini.svg';

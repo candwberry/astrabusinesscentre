@@ -156,4 +156,10 @@
 		background-color: #ee6925;
 		color: white;
 	}
+
+	@media (max-width: 768px) {
+		#top {
+			height: 3rem;
+		}
+	}
 </style>
