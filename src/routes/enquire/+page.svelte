@@ -91,7 +91,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 92vh; /* Accounting for the 8vh navbar */
+		height: calc(92vh + 6rem); /* Accounting for the 8vh navbar */
 		padding: 0 1rem;
 		overflow: hidden;
 	}
@@ -100,11 +100,10 @@
 		display: flex;
 		width: 100%;
 		max-width: 1200px;
-		height: 90%;
 		background-color: white;
 		border-radius: 1rem;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		overflow: hidden;
+		height: 100%;
 	}
 
 	.image-column, .form-column {
@@ -121,7 +120,8 @@
 
 	.form-column {
 		flex: 2;
-		overflow-y: auto;
+		overflow: visible;
+		display: flex;
 	}
 
 	#bigImage {
@@ -262,17 +262,16 @@
 
 		button {
 			width: 100%;
-			margin-bottom: 1rem;
+			margin-bottom: 0.4rem;
 		}
 	}
 
 	@media (max-width: 480px) {
 		main {
-			padding: 0.5rem;
+			padding: 0 1rem;
 		}
 
 		.container {
-			height: 95%;
 		}
 
 		.form-column {
