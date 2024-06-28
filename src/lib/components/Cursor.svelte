@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 
 	let targetX: number = 0;
@@ -27,9 +26,9 @@
 		// Check target is link or button
 		if (
 			target instanceof HTMLButtonElement ||
-			target instanceof HTMLAnchorElement || 
+			target instanceof HTMLAnchorElement ||
 			target.parentElement instanceof HTMLButtonElement ||
-			target.parentElement instanceof HTMLAnchorElement	
+			target.parentElement instanceof HTMLAnchorElement
 		) {
 			hoverElement = mouseEvent.target as HTMLElement;
 			const rect = hoverElement.getBoundingClientRect();
