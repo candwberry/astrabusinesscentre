@@ -273,9 +273,6 @@
 			padding: 0 1rem;
 		}
 
-		.container {
-		}
-
 		.form-column {
 			padding: 1rem;
 		}

@@ -17,9 +17,9 @@
 
 {#if text}
 	{#if selectedUnit === 'NONE'}
-		<p>You <bold>must</bold> select your unit below.</p>
+		<p style="color: black;">You <bold>must</bold> select your unit below.</p>
 	{:else}
-		<p>Your unit: {selectedUnit}</p>
+		<p style="color: black;">Your unit: {selectedUnit}</p>
 	{/if}
 {:else}
 	<div style="height: 64px"></div> <!-- Kind of padding.. -->
