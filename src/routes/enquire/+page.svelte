@@ -104,6 +104,7 @@
 		border-radius: 1rem;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		height: 100%;
+		overflow: hidden;
 	}
 
 	.image-column, .form-column {
@@ -136,6 +137,7 @@
 		flex-direction: column;
 		color: #081535;
 		height: 100%;
+		overflow-y: auto;
 	}
 
 	h1 {
