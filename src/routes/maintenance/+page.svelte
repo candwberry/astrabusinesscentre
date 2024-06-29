@@ -111,7 +111,7 @@
 <div class="modal-overlay" on:click={toggleModal}>
 	<div class="modal-content" on:click|stopPropagation>
 		<Map bind:this={map} callback={handleMapInput} text={false}/>
-		<button class="close-modal" on:click={toggleModal}>Close</button>
+		<button class="close-modal" on:click={toggleModal}>X</button>
 	</div>
 </div>
 {/if}
@@ -265,6 +265,7 @@
 
 	.unit-input input {
 		flex-grow: 1;
+		font-weight: bolder;
 	}
 
 	.select-unit-btn {
@@ -293,26 +294,36 @@
 	}
 
 	.modal-content {
-		background-color: white;
-		padding: 2rem;
+		background-color: #f5f5f5;
+		padding: 1.5rem;
 		border-radius: 1rem;
 		width: 90%;
 		max-width: 600px;
 		max-height: 80vh;
 		overflow-y: auto;
 		color: black;
+		position: relative;
+		margin: 0 1rem;
 	}
 
 	.close-modal {
-		margin-top: 1rem;
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
 		background-color: #ee6925;
 		color: white;
-		padding: 0.5rem 1rem;
+		padding: 0.5rem;
 		border: none;
-		border-radius: 0.25rem;
+		border-radius: 50%;
 		cursor: pointer;
 		font-size: 0.9rem;
+		width: 2rem;
+		height: 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
+
 
 	@media (min-width: 1025px) {
 		.select-unit-btn {

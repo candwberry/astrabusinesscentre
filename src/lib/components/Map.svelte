@@ -22,7 +22,7 @@
 		<p style="color: black;">Your unit: {selectedUnit}</p>
 	{/if}
 {:else}
-	<div style="height: 64px"></div> <!-- Kind of padding.. -->
+	<div style="height: 3rem"></div> <!-- Kind of padding.. -->
 {/if}
 <div class="container">
 	<svg

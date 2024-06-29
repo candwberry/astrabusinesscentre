@@ -174,18 +174,37 @@
 	}
 
 	input, textarea {
-		padding: 0.5rem;
-		border: 1px solid #ccc;
-		border-radius: 0.25rem;
-		font-size: 0.9rem;
-		display: inline-block;
-		background-color: #f5f5f5;
-		padding: 10px;
-		border-radius: 1rem;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    font-size: 16px; /* Increased for better mobile readability */
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    width: 100%;
+    line-height: 1.2;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+	/* Specific adjustments for webkit browsers */
+	@supports (-webkit-touch-callout: none) {
+		input, textarea {
+			font-size: 16px; /* Prevents zoom on focus in iOS */
+		}
+	}
+
+	/* For devices with smaller screens */
+	@media (max-width: 480px) {
+		input, textarea {
+			padding: 8px 10px;
+			font-size: 14px;
+		}
 	}
 
 	input:active, input:focus, textarea:active, textarea:focus {
 		outline: grey auto 1px;
+		-webkit-appearance: none;
+		appearance: none;
 	}
 
 	textarea {
