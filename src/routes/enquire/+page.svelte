@@ -137,6 +137,7 @@
 		color: #081535;
 		height: 100%;
 		overflow-y: auto;
+    padding: 4px;
 	}
 
 	h1 {
