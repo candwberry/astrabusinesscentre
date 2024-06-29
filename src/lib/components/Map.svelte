@@ -26,7 +26,7 @@
 {/if}
 <div class="container">
 	<svg
-		style="max-height: 100%;"
+		style="max-height: 100%; width: 100%;"
 		version="1.2"
 		baseProfile="tiny"
 		id="Layer_1"
