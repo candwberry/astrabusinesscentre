@@ -1,38 +1,42 @@
-# create-svelte
+# Astra Business Centre Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This repository contains the source code for the Astra Business Centre website, a modern and responsive brochure site built with SvelteKit.
 
-## Creating a project
+## About Astra Business Centre
 
-If you're seeing this, you've probably already done this step. Congrats!
+Astra Business Centre offers premium office spaces and business services in the heart of Preston. Our state-of-the-art facilities and flexible solutions cater to businesses of all sizes, from startups to established corporations.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Key features:
+- Flexible office spaces
+- Meeting rooms and conference facilities
+- High-speed internet
+- 24/7 access
+- Professional reception services
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Visit our website, or email <a href="mailto:info@astrabusinesscentre.co.uk">info@astrabusinesscentre.co.uk</a> to learn more about our services and book a tour.
 
-## Developing
+## Technical Details
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Built With
+- [SvelteKit](https://kit.svelte.dev/) - The web framework
+- [TypeScript](https://www.typescriptlang.org/) - Programming language
+- [Vite](https://vitejs.dev/) - Build tool and development server
+- [ESLint](https://eslint.org/) - Linting utility
+- [Prettier](https://prettier.io/) - Code formatter
+- [Bun](https://bun.sh/) - JavaScript runtime and package manager
+- [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) - Bot detection
 
-```bash
-npm run dev
+### Hosting
+- [Azure Static Web Apps](https://azure.microsoft.com/en-us/services/app-service/static/) - Hosting platform
+- Azure actually uses the NodeJS runtime and npm package manager, not bun.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Getting Started
 
-## Building
+To run this project locally:
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Clone the repository
+2. Install dependencies:
+```bun install```
+3. Start the development server:
+```bun run dev```
+4. Go to ```localhost:5173``` 😊
