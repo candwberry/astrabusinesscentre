@@ -1,5 +1,11 @@
 # Astra Business Centre Website
 
+<p align="center">
+  <a href="https://www.astrabusinesscentre.co.uk">
+    <img src="https://github.com/candwberry/astrabusinesscentre/assets/107353607/cd2b5526-6649-4d7e-8f55-044a658713d1" alt="astra-business-centre-450-x-175">
+  </a>
+</p>
+
 This repository contains the source code for the Astra Business Centre website, a modern and responsive brochure site built with SvelteKit.
 
 ## About Astra Business Centre
