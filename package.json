@@ -38,5 +38,8 @@
   "dependencies": {
     "@sveltejs/enhanced-img": "^0.3.0",
     "@types/nodemailer": "^6.4.15"
+  },
+  "engines": {
+    "node": ">=18.17.0"
   }
 }
