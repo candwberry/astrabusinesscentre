@@ -106,7 +106,7 @@
 
     .unit-list-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         width: 100%;
         max-width: 1200px;
@@ -120,8 +120,8 @@
 
     .tables-container {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
+        flex-direction: row;
         gap: 2rem;
         width: 100%;
     }
@@ -161,7 +161,27 @@
         padding: 1rem;
     }
 
+    @media (max-width: 1200px) {
+        .unit-list-container {
+            flex-direction: column;
+        }
+
+
+
+        .map-container {
+            max-width: 100%;
+        }
+    }
+
     @media (max-width: 768px) {
+        .unit-list-container {
+            flex-direction: column;
+        }
+
+        .tables-container {
+            flex-direction: column;
+        }
+
         h1 {
             font-size: 1.5rem;
         }
