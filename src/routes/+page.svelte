@@ -154,7 +154,7 @@ button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #ee6925;
-    color: white;
+    color: black;
     text-decoration: none;
     border-radius: 5px;
 }
@@ -284,7 +284,7 @@ main {
 #findoutmore {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ee6925;
+    background-color: #ec5a10;
     color: white;
     text-decoration: none;
     border-radius: 5px;
