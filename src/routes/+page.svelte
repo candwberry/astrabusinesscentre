@@ -52,7 +52,7 @@
         </div>
         <div id="hero-right">
             <FadeIn extraDelay={-200}>
-                <img class="main-img special" src={office} alt="office" width="500" height="500" />
+                <enhanced:img class="main-img special" src="/static/assets/office.jpeg" alt="" />
                 <svg width="0" height="0">
                     <defs>
                         <clipPath id="clipPolygon" clipPathUnits="objectBoundingBox">
@@ -97,7 +97,6 @@
                 </Carousel>
             {:else}
                 <div class="carouselItem">
-                    <img src={background} alt="background" />
                     <div>
                         <h3>Google Maps</h3>
                     </div>
@@ -392,7 +391,6 @@ main {
     max-width: 500px;
     width: 100%;
     height: auto;
-    opacity: 0.8;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 

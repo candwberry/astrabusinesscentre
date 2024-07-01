@@ -27,7 +27,7 @@
 <main>
 	<div class="container">
 		<div class="image-column">
-			<img id="bigImage" src={enquiry} alt="enquiry" />
+			<enhanced:img id="bigImage" src="/static/assets/office.jpg" alt="enquiry"/>
 		</div>
 		<div class="form-column">
 			<form
@@ -42,7 +42,7 @@
 				}}
 			>
 				<h1><img src={contact} alt="" />Get in touch.</h1>
-				<h5>
+				<h5> 
 					Have an enquiry? Fill out the form and we'll get back to you quickly.
 				</h5>
 				<div style="margin: auto 0;">
@@ -125,8 +125,8 @@
 	}
 
 	#bigImage {
-		width: 100%;
-		height: 100%;
+		width: 400px;
+		height: 400px;
 		border-radius: 1rem;
 		object-fit: cover;
 	}

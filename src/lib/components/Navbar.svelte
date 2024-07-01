@@ -2,6 +2,7 @@
 <script>
 	import logomini from '$lib/assets/logomini.svg';
 	import maintenance from '$lib/assets/maintenance.svg';
+
 	let isMenuOpen = false;
 	const toggleMenu = () => (isMenuOpen = !isMenuOpen);
 </script>
@@ -23,7 +24,7 @@
 			<li><a class="contact" href="/enquire" on:click={toggleMenu}>CONTACT US</a></li>
 			<li>
 				<a class="maintenance" href="/maintenance" on:click={toggleMenu}
-					>MAINTENANCE <img src={maintenance} alt="maintenance" /></a
+					>MAINTENANCE <img src={maintenance} alt="" /></a
 				>
 			</li>
 		</ul>
@@ -150,7 +151,7 @@
 			display: none;
 		}
 	}
-	@media (max-width: 1024px) {
+	@media (max-width: 1224px) {
 		.hamburger {
 			display: flex;
 		}

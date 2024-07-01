@@ -6,7 +6,6 @@ export const load: PageLoad = async ({ fetch, params }) => {
         const resp = await fetch('/units.csv');
         if (resp.ok) {
             const text = await resp.text();
-            console.log(text);
             const rows = text.split('\n').map(row => row.split(','));
             return {
                 rows: rows.slice(1) // Skip header row
