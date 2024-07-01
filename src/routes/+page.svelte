@@ -383,13 +383,13 @@ main {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    padding-right: calc(9% - 3rem);
+    padding-right: calc(9% - 6rem);
     padding-bottom: 5%;
 }
 
 .main-img.special {
     clip-path: url(#clipPolygon);
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
     height: auto;
     transition: opacity 0.3s ease, transform 0.3s ease;
