@@ -1,5 +1,5 @@
 <script lang="ts">
-	import office from '$lib/assets/office.jpeg';
+	import office from '$lib/assets/office2.jpeg';
 	import logomini from '$lib/assets/logomini.svg';
 	import security from '$lib/assets/security.webp';
 	import background from '$lib/assets/background.png';
@@ -32,7 +32,7 @@
     <title>Astra Business Centre</title>
     <meta title="title" content="Astra Business Centre" />
     <meta name="description" content="Astra Business Centre is a business park located in the heart of the UK. We offer a range of services to help innovators build breakout companies." />
-    <link rel="preload" href="/assets/office.jpeg" as="image" />
+    <link rel="preload" href="/assets/office2.jpeg" as="image" />
 </svelte:head>
 
 <main>
@@ -53,7 +53,7 @@
         </div>
         <div id="hero-right">
             <FadeIn extraDelay={-200}>
-                <enhanced:img class="main-img special" src="/static/assets/office.jpeg" alt="" />
+                <enhanced:img class="main-img special" src="/static/assets/office2.jpeg" alt="" />
                 <svg width="0" height="0">
                     <defs>
                         <clipPath id="clipPolygon" clipPathUnits="objectBoundingBox">
@@ -300,10 +300,11 @@ main {
 
 .main-img.special {
     clip-path: url(#clipPolygon);
-    max-width: 500px;
-    width: 100%;
-    height: auto;
+    max-width: 600px;
+    width: 600px;
+    height: 600px;
     transition: opacity 0.3s ease;
+    transform: scale(2.5);
 }
 
 @media (max-width: 1200px) {
@@ -355,9 +356,6 @@ main {
         max-width: 250px;
         opacity: 0.1;
     }
-
-    .gridItem img {
-    }
 }
 
 #hero {
@@ -383,7 +381,7 @@ main {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    padding-right: calc(9% - 6rem);
+    padding-right: calc(25% - 10rem);
     padding-bottom: 5%;
 }
 
@@ -401,6 +399,10 @@ main {
         justify-content: center;
     }
 
+    #hero > div {
+        padding-bottom: 20%;
+    }
+
     #hero-right {
         position: absolute;
         top: 0;
@@ -415,7 +417,7 @@ main {
     .main-img.special {
         max-width: 400px;
         opacity: 0.4;
-        transform: scale(1.2);
+        transform: scale(2);
     }
 }
 
