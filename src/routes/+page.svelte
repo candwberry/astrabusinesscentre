@@ -304,7 +304,6 @@ main {
     width: 600px;
     height: 600px;
     transition: opacity 0.3s ease;
-    transform: scale(2.5);
 }
 
 @media (max-width: 1200px) {
@@ -356,6 +355,9 @@ main {
         max-width: 250px;
         opacity: 0.1;
     }
+
+    .gridItem img {
+    }
 }
 
 #hero {
@@ -381,7 +383,7 @@ main {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    padding-right: calc(25% - 10rem);
+    padding-right: calc(20% - 4rem);
     padding-bottom: 5%;
 }
 
@@ -399,10 +401,6 @@ main {
         justify-content: center;
     }
 
-    #hero > div {
-        padding-bottom: 20%;
-    }
-
     #hero-right {
         position: absolute;
         top: 0;
@@ -417,7 +415,7 @@ main {
     .main-img.special {
         max-width: 400px;
         opacity: 0.4;
-        transform: scale(2);
+        transform: scale(1.2);
     }
 }
 
