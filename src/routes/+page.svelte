@@ -375,13 +375,17 @@ main {
 #hero-left {
     z-index: 2;
     max-width: 1200px;
-    flex: 1;
+    flex: 1.5;
+    padding-left: 10%;
+    padding-bottom: 5%;
 }
 
 #hero-right {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    padding-right: calc(9% - 3rem);
+    padding-bottom: 5%;
 }
 
 .main-img.special {
