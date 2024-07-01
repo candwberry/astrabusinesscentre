@@ -73,6 +73,7 @@
 					<div class="form-field">
 						<label for="unit">Unit</label>
 						<div class="unit-input">
+							<input type="text" placeholder="Select your unit using the unit selector." id="unit" name="unit" bind:value={unit} readonly required />
 							<input type="text" id="unit" name="unit" bind:value={unit} readonly required />
 							<button type="button" on:click={toggleModal} class="select-unit-btn">Select Unit</button>
 						</div>
