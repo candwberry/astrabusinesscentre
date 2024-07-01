@@ -63,11 +63,11 @@
 					<div class="form-grid">
 						<div class="form-field">
 							<label for="name">Company</label>
-							<input type="text" id="name" name="name" placeholder="C&W Berry" required />
+							<input type="text" id="name" name="name" placeholder="John Smith" required />
 						</div>
 						<div class="form-field">
 							<label for="email">Email</label>
-							<input type="email" id="email" name="email" placeholder="david@cwberry.com" required />
+							<input type="email" id="email" name="email" placeholder="j.smith@yourcompany.com" required />
 						</div>
 					</div>
 					<div class="form-field">
@@ -79,7 +79,7 @@
 					</div>
 					<div class="form-field">
 						<label for="message">Message</label>
-						<textarea id="message" name="message" placeholder="The roof has fallen." required></textarea>
+						<textarea id="message" name="message" placeholder="Describe the issue in detail, including location and any relevant information." required></textarea>
 					</div>
 				</div>
 				<div class="form-actions">
@@ -121,7 +121,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: calc(92vh + 6rem); /* Accounting for the 8vh navbar */
+		height: calc(92vh + 6rem); /* Accounting for the 8vh navbar?? wait what */
 		padding: 0 1rem;
 		overflow: hidden;
 	}
@@ -206,10 +206,9 @@
 		padding: 0.5rem;
 		border: 1px solid #ccc;
 		border-radius: 0.25rem;
-		font-size: 0.9rem;
+		font-size: 1rem;
 		display: inline-block;
 		background-color: #f5f5f5;
-		padding: 10px;
 		border-radius: 1rem;
 	}
 
