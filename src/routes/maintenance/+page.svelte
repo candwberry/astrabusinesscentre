@@ -123,7 +123,6 @@
 		justify-content: center;
 		height: calc(92vh + 6rem); /* Accounting for the 8vh navbar?? wait what */
 		padding: 0 1rem;
-		overflow: hidden;
 	}
 
 	.container {

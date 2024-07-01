@@ -92,7 +92,6 @@
     h1 {
         text-align: center;
         border-bottom: 2px solid #ff6600;
-        padding-bottom: 1rem;
         margin-bottom: 2rem;
         font-size: 1.8rem;
     }
@@ -158,7 +157,7 @@
     }
 
     main {
-        padding: 1rem;
+        padding: 0 2rem;
     }
 
     @media (max-width: 1200px) {

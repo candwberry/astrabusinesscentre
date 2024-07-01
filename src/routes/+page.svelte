@@ -35,7 +35,7 @@
 </svelte:head>
 
 <main>
-    <section id="hero">
+    <section id="hero" style="height: 91vh;">
         <div id="hero-left">
             <FadeIn>
                 <h1>
@@ -303,7 +303,6 @@ main {
     max-width: 500px;
     width: 100%;
     height: auto;
-    opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 
