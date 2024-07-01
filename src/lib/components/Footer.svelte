@@ -11,14 +11,14 @@
 </script>
 
 <footer>
-	<div id="top">
+	<!--<div id={showEnquire ? "top" : "topWithoutText"}>
 		<div>
 		{#if showEnquire}
 			<p>Accomplish anything with Astra.</p>
 			<a id="talktosales" href="/enquire">ENQUIRE HERE</a>
 		{/if}
 		</div>
-	</div>
+	</div>-->
 	<div id="socials">
 		<div style="display: flex; justify-content: left; gap: 1rem;">
 			<a href="https://x.com/astra_business" target="_blank"
@@ -75,8 +75,6 @@
 	>
 		<div style="display: flex; gap: 1em;">
 			<a href="/privacy">Privacy</a>
-			<a href="/terms">Terms</a>
-			<a href="/cookies">Cookies</a>
 		</div>
 		<div style="display: flex;">
 			<p>© 2024 Astra Business Centre</p>
@@ -116,6 +114,34 @@
 	}
 
 	#top {
+		background-color: #081535;
+		clip-path: ellipse(75% 100% at center top);
+		height: 100px;
+		padding-bottom: 6rem;
+		transform: translate(-1.1rem, -1.1rem);
+		width: calc(100% + 2.1rem);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		& > div > p{
+			color: white;
+			font-size: 2rem;
+			text-align: center;
+			z-index: 130;
+		}
+
+		& > div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			overflow: visible;	
+		}
+	}
+
+	#topWithoutText {
 		background-color: #081535;
 		clip-path: ellipse(60% 100% at center top);
 		height: 6rem;

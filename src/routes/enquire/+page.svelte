@@ -41,7 +41,7 @@
 					};
 				}}
 			>
-				<h1><img src={contact} alt="" />Get in touch</h1>
+				<h1><img src={contact} alt="" />Get in touch.</h1>
 				<h5>
 					Have an enquiry? Fill out the form and we'll get back to you quickly.
 				</h5>
@@ -49,16 +49,16 @@
 					<div class="form-grid">
 						<div class="form-field">
 							<label for="name">Full Name</label>
-							<input type="text" id="name" name="name" placeholder="David" required />
+							<input type="text" id="name" name="name" placeholder="John Smith" required />
 						</div>
 						<div class="form-field">
 							<label for="email">Email</label>
-							<input type="email" id="email" name="email" placeholder="david@cwberry.com" required />
+							<input type="email" id="email" name="email" placeholder="j.smith@yourcompany.com" required />
 						</div>
 					</div>
 					<div class="form-field">
 						<label for="message">Message</label>
-						<textarea id="message" name="message" placeholder="One office please." required></textarea>
+						<textarea id="message" name="message" placeholder="Tell us your requirements here." required></textarea>
 					</div>	
 				</div>
 				<div class="form-actions">

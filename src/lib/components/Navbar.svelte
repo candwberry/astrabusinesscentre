@@ -19,7 +19,7 @@
 	<div class="menu" class:open={isMenuOpen}>
 		<ul>
 			<li><a href="/" on:click={toggleMenu}>Home</a></li>
-			<li><a href="/about" on:click={toggleMenu}>About</a></li>
+			<li><a class="maintenance" href="/units" on:click={toggleMenu}>Unit Availability</a></li>
 			<li><a class="contact" href="/enquire" on:click={toggleMenu}>CONTACT US</a></li>
 			<li>
 				<a class="maintenance" href="/maintenance" on:click={toggleMenu}
@@ -60,6 +60,7 @@
 		margin-left: 1em;
 		font-size: 1.5em;
 		border-bottom: 2px solid #ee6925;
+		padding-bottom: 0;
 	}
 	.hamburger {
 		display: none;

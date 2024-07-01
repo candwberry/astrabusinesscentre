@@ -14,7 +14,7 @@
 		{$page.error?.message}
 	</h1>
 	<p>
-		<a href="/">Go back to the home page</a>
+		<a href="/">Take me back home.</a>
 	</p>
 </main>
 
