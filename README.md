@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://www.astrabusinesscentre.co.uk">
-    <img src="https://github.com/candwberry/astrabusinesscentre/assets/107353607/cd2b5526-6649-4d7e-8f55-044a658713d1" alt="astra-business-centre-450-x-175">
+      <img src="https://github.com/candwberry/astrabusinesscentre/assets/107353607/61dd0438-b4a8-4b88-a539-56e417be12d7" alt="Astra Business Centre">
   </a>
 </p>
 
