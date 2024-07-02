@@ -5,7 +5,7 @@
 <ContentSection
     id="ourlocation"
     title="Our Location"
-    description="We are located in the heart of Preston, less than a mile away from the M1."
+    description="We are located in the heart of Preston, less than a mile away from the M6."
 >
 <div id="iframeParent">
     <iframe
@@ -28,6 +28,13 @@
         height: 400px;
         border: none;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        appearance: none;
+        outline: none;
+    }
+
+    iframe:active {
+        outline: none;
+        appearance: none;
     }
     
     @media (max-width: 900px) {
