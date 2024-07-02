@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="image">
-		<enhanced:img class="main-img" src="/static/assets/office2.jpeg" alt="" />
+		<enhanced:img class="main-img" src="/assets/office2.jpeg" alt="" />
 		<svg width="00" height="300">
 			<defs>
 				<clipPath id="clipPolygon" clipPathUnits="objectBoundingBox">
