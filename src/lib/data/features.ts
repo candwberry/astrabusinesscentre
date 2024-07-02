@@ -2,37 +2,37 @@ import type { Feature } from '$lib/utils/types';
 
 export default [
 	{
-		name: 'Parking',
+		name: 'Convenient Parking',
 		description:
-			'There is one parking spot, and it is mine. You can park on the street, or pay me an additional $1000 a month for it.',
+			'Enjoy hassle-free parking options. We offer a limited number of on-site parking spots for an additional fee, as well as ample street parking nearby for your convenience.',
 		image: '/images/parking.jpg'
 	},
 	{
-		name: 'Waste Management',
-		description: 'We will give you a bin, and make you sort everything else out yourself!',
+		name: 'Efficient Waste Management',
+		description: 'Our state-of-the-art waste management system promotes sustainability. We provide recycling bins and guide you on proper waste sorting to reduce our environmental impact.',
 		image: '/images/waste.jpg',
-		tags: [{ label: 'Primary Color' }, { label: 'Secondary Color', color: 'secondary' }]
+		tags: [{ label: 'Eco-Friendly' }, { label: 'Sustainable', color: 'secondary' }]
 	},
 	{
-		name: 'Free Wi-Fi',
+		name: 'High-Speed Wi-Fi',
 		description:
-			'We provide free Wi-Fi. And also, we intercept all your traffic and sell it to the highest bidder, and you will have to call us to download or unblock anything :p',
+			"Stay connected with our complimentary high-speed Wi-Fi. Perfect for work or leisure, our secure network ensures you're always online when you need to be.",
 		image: '/images/wifi.jpg'
 	},
 	{
-		name: 'CCTV & Security',
-		description: 'We are always watching! :)',
+		name: 'Advanced Security System',
+		description: 'Your safety is our priority. Our 24/7 CCTV monitoring and state-of-the-art security measures provide peace of mind for all our tenants.',
 		image: '/images/cctv.jpg'
 	},
 	{
-		name: 'Kitchen',
-		description: 'a room with a microwave and kettle.',
+		name: 'Modern Kitchen Facilities',
+		description: 'Enjoy our fully-equipped communal kitchen space, complete with modern appliances to meet all your culinary needs.',
 		image: '/images/kitchen.jpg'
 	},
 	{
-		name: 'Boardroom',
+		name: 'Professional Boardrooms',
 		description:
-			'We provide awesome boardrooms for your meetings! You will look just like the guy in the image!',
+			'Impress clients and boost productivity in our sleek, well-appointed boardrooms. Equipped with the latest technology for seamless presentations and video conferencing.',
 		image: '/images/boardroom.jpg'
 	}
 ] as Feature[];
