@@ -1,7 +1,7 @@
 <script>
 	import Highlight from '$lib/components/molecules/Highlight.svelte';
 	import Socials from '$lib/components/molecules/Socials.svelte';
-	import Image from '../atoms/Image.svelte';
+	import image from '$lib/assets/office2.jpeg';
 </script>
 
 <section id="about">
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="image">
-		<enhanced:img class="main-img" src="/assets/office2.jpeg" alt="" />
+		<img class="main-img" src={image} alt="" />
 		<svg width="00" height="300">
 			<defs>
 				<clipPath id="clipPolygon" clipPathUnits="objectBoundingBox">
