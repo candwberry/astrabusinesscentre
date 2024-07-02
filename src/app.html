@@ -1,92 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+		<!-- Favicon -->
+		<link rel="icon" href="%sveltekit.assets%/favicons/favicon.png" />
+
+		<!-- Tell browser this site is responsive -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Tell browser this site supports light and dark mode -->
+		<meta name="color-scheme" content="light dark" />
+		<!-- Color for browser url bar in mobile/Safari -->
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#b28cf2" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#4612A1" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap&subset=latin" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap&subset=latin"></noscript>
-	
+		<link
+			rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap&subset=latin"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript
+			><link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap&subset=latin"
+		/></noscript>
+
+		<script>
+			// Calling this here so that it loads as quickly as possible
+			// Avoiding a flash of light mode in case dark mode is used
+			const theme = localStorage.getItem('theme-preference') || 'auto';
+			document.firstElementChild?.setAttribute('data-theme', theme);
+		</script>
 		<style>
-			html {
-				height: 100%;
-				font-family: 'Arimo', sans-serif;
-				font-weight: bold;
-				scroll-behavior: smooth;
-				font-size: 1rem;
-				touch-action: manipulation;
-			}
-
-			html,
-			body,
-			main {
-				margin: 0;
-				padding: 0;
-				display: flex;
-				background-color: #081535;
-				color: white;
-			}
-
-			*::selection {
-				color: white;
-				background: rgb(238, 105, 37);
-			}
-
-			*::-moz-selection {
-				color: white;
-				background: rgb(238, 105, 37);
-			}
-
-			main,
-			body {
-				flex-grow: 1;
-				flex-direction: column;
-			}
-
-			main {
-				display: flex;
-				z-index: 1;
-			}
-
-			section {
-				display: flex;
-				padding: 0;
-				height: 100vh;
-			}
-
 			* {
-				font-family: inherit;
-			}
-
-			/* temp thing for testing 
-			nav,
-			section,
-			footer {
-				border: 1px solid red;
-			}
-		*/
-
-			a {
-				color: #fff;
-				cursor: pointer;
-				font-size: 1em;
-				transition: 0.25s ease;
-				text-decoration: none;
-			}
-
-			@media (max-width: 768px) {
-				html {
-					font-size: 0.8em;
-				}
+				font-family: 'Arimo', sans-serif;
 			}
 		</style>
+
 		%sveltekit.head%
 	</head>
-
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div id="svelte-root">%sveltekit.body%</div>
 	</body>
 </html>

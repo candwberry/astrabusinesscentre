@@ -1,32 +1,52 @@
 <script>
+	import Header from '$lib/components/organisms/Header.svelte';
+	import Footer from '$lib/components/organisms/Footer.svelte';
+
+	import Button from '$lib/components/atoms/Button.svelte';
+	import Error from '$lib/icons/error.svelte';
 	import { page } from '$app/stores';
 </script>
 
-<svelte:head>
-	<meta name="robots" content="noindex" />
-	<!-- We don't want search engines to index error pages -->
-	<title>{$page.status} - Astra Business Centre</title>
-</svelte:head>
+<Header showBackground />
+
 <main>
-	<h1>
-		<span style="font-size: 4rem;">{$page.status}</span>
-		<br />
-		{$page.error?.message}
-	</h1>
-	<p>
-		<a href="/">Take me back home.</a>
-	</p>
+	<div class="error-page">
+		<div class="container">
+			<h1>Oh no! {$page.status ? $page.status : ''}</h1>
+			<h2>{$page.error?.message}</h2>
+			<div class="svg-wrapper">
+				<Error />
+			</div>
+			<p>It seems like tea was spilled all over this page, and now it can't be displayed.</p>
+			<br />
+			<Button href="/">Go home</Button>
+		</div>
+	</div>
 </main>
 
-<style>
-	main {
+<Footer />
+
+<style lang="scss">
+	.error-page {
+		background: var(--color--page-background);
+		position: relative;
+	}
+	.container {
 		display: flex;
 		flex-direction: column;
-		padding: 1em;
+		align-items: center;
+		justify-content: center;
+		min-height: 60vh;
 		text-align: center;
 
-		& > p > a {
-			color: #ee6925;
+		.svg-wrapper {
+			width: 300px;
+			margin-top: -60px;
+			margin-bottom: -30px;
+
+			:global(svg) {
+				filter: drop-shadow(2px 6px 0px rgba(0, 0, 0, 0.1));
+			}
 		}
 	}
 </style>
