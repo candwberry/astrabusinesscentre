@@ -49,7 +49,8 @@ export const actions = {
 		console.log(name, email, message, unit, turnstile);
 
 		if (emptyString(name) || emptyString(email) || emptyString(message) || emptyString(unit)) {
-			return fail(422, { error: 'Please fill out all fields.' });
+			// For some reason client-side verification on the unit selector DOESN'T WORK. So we will do it here.
+			return fail(422, { error: "Don't forget to select and enter your unit!" }); 
 		}
 
 		// Check the key after, saves a wasted request :)
