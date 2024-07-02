@@ -87,6 +87,8 @@
 						<p class="success">Email sent successfully! Thank you!</p>
 					{:else if processing}
 						<p class="processing">Processing...</p>
+					{:else}
+						<p style="color: white;">...</p>
 					{/if}
 				</div>
 			</form>

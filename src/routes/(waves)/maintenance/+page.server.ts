@@ -58,7 +58,7 @@ export const actions = {
 
 		if (!success) {
 			console.log(error);
-			return fail(422, { error: "Bot validation failed :'(" });
+			return fail(422, { error: "Bot validation failed :(" });
 		}
 
 		try {

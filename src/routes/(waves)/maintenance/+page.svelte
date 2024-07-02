@@ -119,6 +119,8 @@
 						<p class="success">Request sent successfully! We'll be in touch shortly.</p>
 					{:else if processing}
 						<p class="processing">Processing...</p>
+					{:else}
+						<p style="color: white;">...</p>
 					{/if}
 				</div>
 			</form>
