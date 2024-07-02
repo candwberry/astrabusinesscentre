@@ -48,7 +48,7 @@
                 <h2>Astra Business Centre, Roman Way, PR2 5AP</h2>
             </FadeIn>
             <FadeIn extraDelay={200}>
-                <a id="findoutmore" href="#services">Find Out More</a>
+                <a id="findoutmore" href="#facilities">Find Out More</a>
             </FadeIn>
         </div>
         <div id="hero-right">
@@ -104,7 +104,7 @@
                 </div>
             {/if}
         </div>
-        <div id="grid">
+        <div id="grid" style="margin: auto 0;">
             <div class="gridItem">
                 <img src={cctv} alt="" />
                 <div>CCTV & Security</div>
@@ -151,14 +151,6 @@ button {
     color: #ee6925;
 }
 
-#findoutmore {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ee6925;
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-}
 
 .main-img.special {
     clip-path: url(#clipPolygon);
@@ -170,10 +162,11 @@ button {
     align-items: center;
     width: 100%;
     position: relative;
-    justify-content: center;
+    justify-content: start;
     background-color: white;
     gap : 2rem;
     min-height: 91vh;
+    overflow: visible;
 }
 
 .facilities-header {
@@ -221,7 +214,7 @@ button {
 #grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;;
+    gap: 60px;;
 }
 
 .gridItem {
@@ -262,10 +255,9 @@ main {
 #hero-left {
     z-index: 2;
     max-width: 800px;
-        display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 #hero-left h1 {
@@ -284,8 +276,8 @@ main {
 
 #findoutmore {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #ec5a10;
+    padding: 10px 30px;
+    border: 4px solid #ee6925;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -354,11 +346,7 @@ main {
     .main-img.special {
         max-width: 250px;
         opacity: 0.1;
-    }
-
-    .gridItem img {
-    }
-}
+    }}
 
 #hero {
     display: flex;
@@ -375,15 +363,16 @@ main {
     z-index: 2;
     max-width: 1200px;
     flex: 1.5;
-    padding-left: 10%;
+    padding-left: 5%;
     padding-bottom: 5%;
+    padding-right: 10%;
 }
 
 #hero-right {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    padding-right: calc(20% - 4rem);
+    padding-right: calc(15% - 8rem);
     padding-bottom: 5%;
 }
 
@@ -425,6 +414,12 @@ main {
         opacity: 0.2;
         transform: scale(1.4);
     }
+
+    #hero-left {
+        padding: 0;
+        margin: 0;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -432,6 +427,15 @@ main {
         max-width: 250px;
         opacity: 0.1;
         transform: scale(1.6);
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    .gridItem img {
+        width: 40px;
+        height: 40px;
     }
 }
 </style>
