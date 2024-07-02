@@ -4,7 +4,7 @@
 	import type { ActionData } from '$types';
 	import { Turnstile } from 'svelte-turnstile';
 	import contact from '$lib/assets/contact.svg';
-
+	import image from '$lib/assets/office.jpg';
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
 	let processing: boolean = false;
@@ -26,7 +26,7 @@
 <main>
 	<div class="container2">
 		<div class="image-column">
-			<img id="bigImage" src="/assets/office.jpg" alt="enquiry" />
+			<img id="bigImage" src={image} alt="enquiry" />
 		</div>
 		<div class="form-column">
 			<form

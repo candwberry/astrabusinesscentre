@@ -11,7 +11,6 @@ export default [
 		name: 'Efficient Waste Management',
 		description: 'Our state-of-the-art waste management system promotes sustainability. We provide recycling bins and guide you on proper waste sorting to reduce our environmental impact.',
 		image: '/images/waste.jpg',
-		tags: [{ label: 'Eco-Friendly' }, { label: 'Sustainable', color: 'secondary' }]
 	},
 	{
 		name: 'High-Speed Wi-Fi',

@@ -11,7 +11,7 @@
 
 <Card additionalClass="feature-card">
 	<div class="image" slot="image">
-		<enhanced:img src={image} alt="Picture describing the {name} feature" />
+		<img src={image} alt="Picture describing the {name} feature" />
 	</div>
 	<div class="content" slot="content">
 		<div class="title">

@@ -24,7 +24,6 @@
   "type": "module",
   "dependencies": {
     "@fontsource/arimo": "^4.5.11",
-    "@sveltejs/enhanced-img": "^0.3.0",
     "@types/nodemailer": "^6.4.15",
     "nodemailer": "^6.9.14",
     "svelte-turnstile": "^0.5.0"
