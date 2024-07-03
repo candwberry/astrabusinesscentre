@@ -89,7 +89,7 @@
 				flex-direction: column;
 				.title-area {
 					order: 1;
-					max-width: 600px;
+					max-width: 900px;
 				}
 				.content-area {
 					order: 2;

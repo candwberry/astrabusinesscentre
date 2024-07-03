@@ -1,26 +1,33 @@
 <script>
-	import Highlight from '$lib/components/molecules/Highlight.svelte';
-	import Socials from '$lib/components/molecules/Socials.svelte';
+	import Highlight from "$lib/components/molecules/Highlight.svelte";
+	import Socials from "$lib/components/molecules/Socials.svelte";
 </script>
 
 <section id="about">
 	<div class="info">
 		<h2>
-			We love office units and <Highlight color="secondary">businesses!</Highlight>
+			Secure Office & Industrial Units in <Highlight color="secondary"
+				>Preston</Highlight
+			>
 		</h2>
 		<p>
-			Discover the unparalleled convenience and security of Astra Business Centre, where your
-			business's success is our priority. Elevate your business at Astra Business Centre - where <strong
-				>excellence meets opportunity.</strong
-			>
+			<strong>Astra Business Centre</strong> offers businesses and individuals spacious,
+			fully secure office and industrial units for lease in Preston.
+			Conveniently located near Junction 31a of the M6 motorway, the
+			centre features cellular meeting rooms, WC facilities, kitchens, and
+			reception areas, designed to meet the needs of modern working
+			practices.
 		</p>
 		<div class="socials">
-			<span>Socials:</span>
 			<Socials />
 		</div>
 	</div>
 	<div class="image">
-		<enhanced:img class="main-img" src="/static/assets/office2.jpeg" alt="" />
+		<enhanced:img
+			class="main-img"
+			src="/static/assets/office2.jpeg"
+			alt=""
+		/>
 		<svg width="00" height="300">
 			<defs>
 				<clipPath id="clipPolygon" clipPathUnits="objectBoundingBox">
@@ -34,7 +41,7 @@
 </section>
 
 <style lang="scss">
-	@import '$lib/scss/breakpoints.scss';
+	@import "$lib/scss/breakpoints.scss";
 	.main-img {
 		clip-path: url(#clipPolygon);
 		width: 100%;
@@ -54,7 +61,7 @@
 	#about {
 		position: relative;
 		display: grid;
-		grid-template-columns: 500px 250px;
+		grid-template-columns: calc(100% - 300px) 250px;
 		align-items: center;
 		justify-content: space-between;
 		padding-bottom: 50px;

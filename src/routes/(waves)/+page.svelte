@@ -21,5 +21,6 @@
 <div class="container">
 	<Hero />
 	<About />
+	<hr style="height: 0; border: 1px solid #ee6925; margin: 16px auto; "/>
 	<Location />
 </div>
