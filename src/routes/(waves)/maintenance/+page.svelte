@@ -83,7 +83,7 @@
 								readonly
 								required
 							/>
-							<button type="button" on:click={toggleModal} class="select-unit-btn"
+							<button class="button select-unit-btn size--medium color--primary style--solid" type="button" on:click={toggleModal}
 								>Select Unit</button
 							>
 						</div>
@@ -106,7 +106,7 @@
 							appearance={'interaction-only'}
 						/>
 					</div>
-					<button type="submit">Send request</button>
+					<button class="button size--medium color--secondary style--solid" type="submit">Send request</button>
 				</div>
 				<div class="form-status">
 					{#if form?.error}
@@ -133,7 +133,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	main {
 		display: flex;
 		align-items: center;
@@ -216,11 +216,6 @@
 		margin-bottom: 1rem;
 	}
 
-	label {
-		margin-bottom: 0.25rem;
-		font-size: 0.9rem;
-	}
-
 	input,
 	textarea {
 		padding: 12px 12px;
@@ -252,18 +247,92 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		z-index: 1000;
 	}
 
-	button {
-		background-color: #ee6925;
-		color: white;
-		padding: 0.75rem 1.5rem;
-		border: none;
-		border-radius: 0.25rem;
-		cursor: pointer;
-		font-weight: bold;
-		font-size: 0.9rem;
+	.button {
 		white-space: nowrap;
+		margin: 0 8px;
+		--main-color: red;
+		--light-color: blue;
+		--contrast-color: green;
+
+		-webkit-appearance: none;
+		appearance: none;
+		cursor: pointer;
+		text-decoration: none;
+		transition: all 0.2s ease-in-out;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+
+		position: relative;
+
+		border: none;
+		border-radius: 20px;
+		font-weight: 700;
+
+		&.color {
+			&--primary {
+				--main-color: var(--color--primary-rgb);
+				--light-color: var(--color--primary-tint-rgb);
+				--contrast-color: var(--color--primary-contrast);
+			}
+			&--secondary {
+				--main-color: var(--color--secondary-rgb);
+				--light-color: var(--color--secondary-tint-rgb);
+				--contrast-color: var(--color--secondary-contrast);
+			}
+		}
+
+		&.style {
+			&--solid {
+				background-color: rgb(var(--main-color));
+				color: var(--contrast-color);
+
+				&:hover {
+					box-shadow: 0px 0px 1px 7px rgba(var(--main-color), 0.3);
+				}
+			}
+			&--understated {
+				background-color: rgb(var(--light-color));
+				color: rgb(var(--main-color));
+
+				&:hover {
+					box-shadow: 0px 0px 1px 7px rgba(var(--main-color), 0.3);
+				}
+			}
+			&--clear {
+				background-color: transparent;
+				color: rgb(var(--main-color));
+
+				&:hover {
+					background-color: rgb(var(--light-color));
+				}
+			}
+		}
+
+		&.size {
+			&--small {
+				padding: 5px 10px;
+				font-size: 0.75rem;
+
+				.icon {
+					width: 20px;
+					height: 20px;
+				}
+			}
+			&--medium {
+				padding: 10px 20px;
+				font-size: 1rem;
+			}
+			&--large {
+				padding: 15px 30px;
+				font-size: 1.15rem;
+			}
+		}
 	}
 
 	#turnstile-container {
@@ -304,15 +373,11 @@
 	}
 
 	.select-unit-btn {
-		background-color: #081535;
-		color: white;
-		padding: 0.5rem 1rem;
-		border: none;
-		border-radius: 0.25rem;
 		cursor: pointer;
 		font-size: 0.9rem;
 		margin: 0;
 		margin-left: 10px;
+		margin-right: 8px;
 	}
 
 	.modal-overlay {

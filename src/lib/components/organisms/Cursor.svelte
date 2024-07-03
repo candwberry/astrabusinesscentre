@@ -32,7 +32,7 @@
 		) {
 			hoverElement = mouseEvent.target as HTMLElement;
 			const rect = hoverElement.getBoundingClientRect();
-			if (rect.width / rect.height > 3.5) return; // rectangles dont look good.
+			if (rect.width / rect.height > 1.5) return; // rectangles dont look good.
 			width = rect.width + 24;
 			height = rect.height + 24;
 			hover = true;

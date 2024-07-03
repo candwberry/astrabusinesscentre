@@ -13,7 +13,7 @@
 		<p style="margin-bottom: 1rem;">
 			<strong>Astra Business Centre</strong> offers businesses and individuals spacious,
 			fully secure office and industrial units for lease in Preston.
-			Conveniently located near Junction 31a of the M6 motorway, the
+			Conveniently located near the M6 motorway, the
 			centre features cellular meeting rooms, WC facilities, kitchens, and
 			reception areas, designed to meet the needs of modern working
 			practices.

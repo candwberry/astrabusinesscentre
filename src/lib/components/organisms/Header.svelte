@@ -29,6 +29,7 @@
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>
+			<a class="hideUntilMobile" on:click={toggleMenu} href="/enquire">Home</a>
 			<a on:click={toggleMenu} href="/enquire">Contact Us</a>
 			<a on:click={toggleMenu} href="/maintenance">Maintenance</a>
 			<!--<ThemeToggle />-->
@@ -48,6 +49,12 @@
 
 <style lang="scss">
 	@import '$lib/scss/breakpoints.scss';
+	.hideUntilMobile {
+		display: none;
+		@include for-phone-only {
+			display: block;
+		}
+	}
 	.hamburger {
 		display: none;
 		flex-direction: column;
@@ -127,6 +134,8 @@
 					transform: translateX(100%);
 					color: white;
 					z-index: 5000;
+					font-size: 2rem;
+					line-height: 3rem;
 				}
 
 				.links.open {
