@@ -84,7 +84,7 @@
 
 			p {
 				@include for-phone-only {
-					text-align: justify;
+					text-align: center;
 				}
 			}
 
@@ -110,6 +110,10 @@
 		.image {
 			width: 220px;
 			height: 220px;
+			
+			@include for-phone-only {
+				display: none;
+			}
 		}
 	}
 </style>
