@@ -9,13 +9,7 @@
 	</div>
 	<div class="content">
 		<div class="copyright">
-			<a
-				href="/"
-				target="_blank"
-				rel="noopener noreferrer">© 2024 CWBG Ltd - Astra Business Centre
- 
-				</a
-			>
+			© 2024 CWBG Ltd - Astra Business Centre
 		</div>
 		<div class="credits">
 			Powered by <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer"
