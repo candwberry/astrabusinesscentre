@@ -10,7 +10,7 @@
 				>Preston</Highlight
 			>
 		</h2>
-		<p>
+		<p style="margin-bottom: 1rem;">
 			<strong>Astra Business Centre</strong> offers businesses and individuals spacious,
 			fully secure office and industrial units for lease in Preston.
 			Conveniently located near Junction 31a of the M6 motorway, the
@@ -25,10 +25,10 @@
 	<div class="image">
 		<enhanced:img
 			class="main-img"
-			src="/static/assets/office2.jpeg"
+			src="/static/assets/office3.jpg"
 			alt=""
 		/>
-		<svg width="00" height="300">
+		<svg width="300" height="300">
 			<defs>
 				<clipPath id="clipPolygon" clipPathUnits="objectBoundingBox">
 					<path
