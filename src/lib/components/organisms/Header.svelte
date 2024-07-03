@@ -29,7 +29,7 @@
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>
-			<a class="hideUntilMobile" on:click={toggleMenu} href="/enquire">Home</a>
+			<a class="hideUntilMobile" on:click={toggleMenu} href="/">Home</a>
 			<a on:click={toggleMenu} href="/enquire">Contact Us</a>
 			<a on:click={toggleMenu} href="/maintenance">Maintenance</a>
 			<!--<ThemeToggle />-->
