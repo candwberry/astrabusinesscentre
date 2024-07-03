@@ -17,9 +17,9 @@
 
 {#if text}
 	{#if selectedUnit === 'NONE'}
-		<p style="color: black;">You <bold>must</bold> select your unit below.</p>
+		<p style="color: black;">You <span style="color: #ee6925;">must</span> select your unit below.</p>
 	{:else}
-		<p style="color: black;">Your unit: {selectedUnit}</p>
+		<p style="color: black;"><b>Your unit: {selectedUnit}</b></p>
 	{/if}
 {:else}
 	<div style="height: 3rem" />
@@ -877,5 +877,9 @@
 		fill: red;
 		border: none;
 		outline: none;
+	}
+
+	p {
+		font-weight: 600;
 	}
 </style>

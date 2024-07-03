@@ -4,7 +4,6 @@
 	import type { ActionData } from '$types';
 	import { Turnstile } from 'svelte-turnstile';
 	import contact from '$lib/assets/contact.svg';
-	import image from '$lib/assets/office.jpg';
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
 	let processing: boolean = false;
@@ -15,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<meta name="title" content="Enquire About Unit Rentals | Astra Business Centre" />
+	<meta name="title" content="Contact Us" />
 	<meta
 		name="description"
 		content="Looking for office space? Enquire about renting units at Astra Business Centre. Flexible options and prime locations. Contact us today!"
@@ -41,30 +40,27 @@
 				}}
 			>
 				<h1><img src={contact} alt="" />Get in touch.</h1>
-				<h5>Have an enquiry? Fill out the form and we'll get back to you quickly.</h5>
+				<h5>Looking for a commercial or industrial unit in Preston? Please enquire utilising the form below and we will get back to you shortly.</h5>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
-							<label for="name">Full Name</label>
-							<input type="text" id="name" name="name" placeholder="John Smith" required />
+							<input type="text" id="name" name="name" placeholder="Your Full Name" required />
 						</div>
 						<div class="form-field">
-							<label for="email">Email</label>
 							<input
 								type="email"
 								id="email"
 								name="email"
-								placeholder="j.smith@yourcompany.com"
+								placeholder="Email Address"
 								required
 							/>
 						</div>
 					</div>
-					<div class="form-field">
-						<label for="message">Message</label>
+					<div class="form-field form-field-textarea">
 						<textarea
 							id="message"
 							name="message"
-							placeholder="Tell us your requirements here."
+							placeholder="Message"
 							required
 						/>
 					</div>
@@ -183,23 +179,24 @@
 		margin-bottom: 1rem;
 	}
 
-	label {
-		margin-bottom: 0.25rem;
-		font-size: 0.9rem;
-	}
-
 	input,
 	textarea {
-		padding: 10px 12px;
+		padding: 12px 12px;
 		border: 1px solid #ccc;
 		border-radius: 1rem;
-		font-size: 16px; /* Increased for better mobile readability */
+		font-size: 16px;
 		background-color: #f5f5f5;
 		box-sizing: border-box;
 		width: 100%;
 		line-height: 1.2;
 		-webkit-appearance: none;
 		appearance: none;
+		margin-bottom: 2px;
+	}
+
+	textarea {
+		height: 7rem;
+		resize: none;
 	}
 
 	/* Specific adjustments for webkit browsers */
@@ -226,11 +223,6 @@
 		outline: grey auto 1px;
 		-webkit-appearance: none;
 		appearance: none;
-	}
-
-	textarea {
-		height: 5rem;
-		resize: none;
 	}
 
 	.form-actions {

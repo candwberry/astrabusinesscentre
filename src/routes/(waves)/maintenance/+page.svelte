@@ -30,7 +30,7 @@
 </script>
 
 <svelte:head>
-	<meta name="title" content="Maintenance Request | Astra Business Centre" />
+	<meta name="title" content="Maintenance | Astra Business Centre" />
 	<meta
 		name="description"
 		content="Need maintenance for your unit? Submit a request at Astra Business Centre. We'll address your issue promptly. Contact us today!"
@@ -56,30 +56,27 @@
 				}}
 			>
 				<h1><img src={maintenance} alt="" /> Got a problem?</h1>
-				<h5>Give us the details below and we'll sort it out as soon as possible.</h5>
+				<h5>If you're a tenant at Astra Business Centre and you have an issue related to maintenance. Please complete the form below and we will get back to you as soon as possible.</h5>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
-							<label for="name">Company</label>
-							<input type="text" id="name" name="name" placeholder="John Smith" required />
+							<input type="text" id="name" name="name" placeholder="Your Company Name" required />
 						</div>
 						<div class="form-field">
-							<label for="email">Email</label>
 							<input
 								type="email"
 								id="email"
 								name="email"
-								placeholder="j.smith@yourcompany.com"
+								placeholder="Email address"
 								required
 							/>
 						</div>
 					</div>
 					<div class="form-field">
-						<label for="unit">Unit</label>
 						<div class="unit-input">
 							<input
 								type="text"
-								placeholder="Select your unit using the unit selector."
+								placeholder="Please select your unit."
 								id="unit"
 								name="unit"
 								bind:value={unit}
@@ -92,11 +89,10 @@
 						</div>
 					</div>
 					<div class="form-field">
-						<label for="message">Message</label>
 						<textarea
 							id="message"
 							name="message"
-							placeholder="Describe the issue in detail, including location and any relevant information."
+							placeholder="Message"
 							required
 						/>
 					</div>
@@ -227,16 +223,22 @@
 
 	input,
 	textarea {
-		padding: 10px 12px;
+		padding: 12px 12px;
 		border: 1px solid #ccc;
 		border-radius: 1rem;
-		font-size: 16px; /* Increased for better mobile readability */
+		font-size: 16px;
 		background-color: #f5f5f5;
 		box-sizing: border-box;
 		width: 100%;
 		line-height: 1.2;
 		-webkit-appearance: none;
 		appearance: none;
+		margin-bottom: 2px;
+	}
+
+	textarea {
+		height: 7rem;
+		resize: none;
 	}
 
 	input:active,
@@ -245,12 +247,7 @@
 	textarea:focus {
 		outline: grey auto 1px;
 	}
-
-	textarea {
-		height: 5rem;
-		resize: none;
-	}
-
+	
 	.form-actions {
 		display: flex;
 		justify-content: space-between;
