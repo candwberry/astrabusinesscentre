@@ -9,11 +9,13 @@
 	</div>
 	<div class="content">
 		<div class="copyright">
-			This website was built by <a
-				href="https://www.astrabusinesscentre.co.uk/"
+			<a
+				href="/"
 				target="_blank"
-				rel="noopener noreferrer">Astra Business Centre</a
-			> - © 2024.
+				rel="noopener noreferrer">© 2024 CWBG Ltd
+ 
+				</a
+			>
 		</div>
 		<div class="credits">
 			Powered by <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer"
