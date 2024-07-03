@@ -5,7 +5,7 @@
 <ContentSection
     id="ourlocation"
     title="Our Location"
-    description="We are located in the heart of Preston, less than a mile away from the M6."
+    description="Conveniently located at the entrance to Roman Way Industrial Estate and less than a mile from Junction 31(a) of the M6 Motorway, Astra Business Centre offers excellent accessibility to businesses and organisations throughout the North West of England."
 >
 <div id="iframeParent">
     <iframe
