@@ -30,11 +30,12 @@
 			</div>
 		{/if}
 	</div>
-	<picture></picture> <!-- This is needed because we don't want dead CSS to be optomised out. And also enhanced:img turns to picture at build time-->
+	<!-- svelte-ignore a11y-missing-attribute -->
+	<picture><img src="" alt=""/></picture> <!-- This is needed because we don't want dead CSS to be optomised out. And also enhanced:img turns to picture at build time-->
 </Card>
 
 <style lang="scss">
-	picture {
+	picture, img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
