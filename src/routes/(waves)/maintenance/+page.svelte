@@ -263,6 +263,7 @@
 		cursor: pointer;
 		font-weight: bold;
 		font-size: 0.9rem;
+		white-space: nowrap;
 	}
 
 	#turnstile-container {
