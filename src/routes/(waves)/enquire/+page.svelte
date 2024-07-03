@@ -26,7 +26,7 @@
 <main>
 	<div class="container2">
 		<div class="image-column">
-			<img id="bigImage" src={image} alt="enquiry" />
+			<enhanced:img id="bigImage" src="/static/assets/office.jpg" alt="enquiry" />
 		</div>
 		<div class="form-column">
 			<form

@@ -11,7 +11,9 @@
 
 <Card additionalClass="feature-card">
 	<div class="image" slot="image">
-		<img src={image} alt="Picture describing the {name} feature" />
+		{#if image}
+			<enhanced:img src={image} alt="Picture describing the {name} service" />
+		{/if}
 	</div>
 	<div class="content" slot="content">
 		<div class="title">
@@ -28,20 +30,21 @@
 			</div>
 		{/if}
 	</div>
+	<picture></picture> <!-- This is needed because we don't want dead CSS to be optomised out. And also enhanced:img turns to picture at build time-->
 </Card>
 
 <style lang="scss">
+	picture {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
 	.content {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
 		align-items: flex-start;
-	}
-
-	img {
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
 	}
 
 	.title {
