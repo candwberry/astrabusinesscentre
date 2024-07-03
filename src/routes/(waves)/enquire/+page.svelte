@@ -44,7 +44,7 @@
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
-							<input type="text" id="name" name="name" placeholder="Your Full Name" required />
+							<input type="text" id="name" name="name" placeholder="Full Name" required />
 						</div>
 						<div class="form-field">
 							<input

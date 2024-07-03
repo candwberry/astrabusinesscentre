@@ -60,7 +60,7 @@
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
-							<input type="text" id="name" name="name" placeholder="Your Company Name" required />
+							<input type="text" id="name" name="name" placeholder="Company Name" required />
 						</div>
 						<div class="form-field">
 							<input
@@ -247,7 +247,7 @@
 	textarea:focus {
 		outline: grey auto 1px;
 	}
-	
+
 	.form-actions {
 		display: flex;
 		justify-content: space-between;
