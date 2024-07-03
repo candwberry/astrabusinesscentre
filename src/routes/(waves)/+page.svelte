@@ -22,5 +22,4 @@
 	<Hero />
 	<About />
 	<Location />
-	<Features {features} />
 </div>

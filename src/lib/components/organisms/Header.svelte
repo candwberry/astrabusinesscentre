@@ -29,7 +29,6 @@
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>
-			<a on:click={toggleMenu} href="/units">Unit Availability</a>
 			<a on:click={toggleMenu} href="/enquire">Contact Us</a>
 			<a on:click={toggleMenu} href="/maintenance">Maintenance</a>
 			<!--<ThemeToggle />-->
