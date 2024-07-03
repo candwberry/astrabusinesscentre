@@ -163,8 +163,8 @@
 	}
 
 	h5 {
-		font-size: 1rem;
-		margin: 0 0 1rem 0;
+		font-size: 0.85rem;
+		margin: 1rem 0 2rem;
 		font-weight: normal;
 	}
 
@@ -290,7 +290,7 @@
 		}
 
 		h5 {
-			font-size: 0.9rem;
+			font-size: 0.8rem;
 		}
 
 		.form-actions {
