@@ -12,7 +12,7 @@
 			<a
 				href="/"
 				target="_blank"
-				rel="noopener noreferrer">© 2024 CWBG Ltd
+				rel="noopener noreferrer">© 2024 CWBG Ltd - Astra Business Centre
  
 				</a
 			>
