@@ -26,7 +26,7 @@
 <main>
 	<div class="container2">
 		<div class="image-column">
-			<enhanced:img id="bigImage" src="/static/jpg/astra-business-centre-office-enquire.jpg" alt="enquiry" />
+			<enhanced:img id="bigImage" src="/static/jpg/astra-business-centre-office-enquire.jpg" alt="Astra Business Centre" />
 		</div>
 		<div class="form-column">
 			<form

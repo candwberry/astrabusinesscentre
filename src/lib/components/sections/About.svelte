@@ -25,7 +25,7 @@
 		<enhanced:img
 			class="main-img"
 			src="/static/jpg/astra-business-centre-office.jpg"
-			alt=""
+			alt="Astra Business Centre"
 		/>
 		<svg width="300" height="300">
 			<defs>
