@@ -1,3 +1,9 @@
+<svelte:head>
+	<title>Astra Business Centre - Commercial Units to Rent in Preston</title>
+	<meta name="title" content="Astra Business Centre - Commercial Units to Rent in Preston" />
+	<meta name="description" content="Astra Business Centre offers companies spacious, fully secure office and industrial units for lease at economical prices in Preston." />
+</svelte:head>
+
 <script lang="ts">
 	import Hero from '$lib/components/sections/Hero.svelte';
 	import About from '$lib/components/sections/About.svelte';
@@ -11,12 +17,6 @@
 
 	let { features } = data;
 </script>
-
-<svelte:head>
-    <title>Astra Business Centre</title>
-    <meta name="title" content="Astra Business Centre" />
-    <meta name="description" content="Astra Business Centre is a business park located in the heart of the UK. We offer a range of services to help innovators build breakout companies." />
-</svelte:head>
 
 <div class="container">
 	<Hero />

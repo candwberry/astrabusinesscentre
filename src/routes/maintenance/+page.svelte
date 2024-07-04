@@ -1,3 +1,13 @@
+
+<svelte:head>
+	<title>Astra Business Centre - Maintenance Enquiries</title>
+	<meta name="title" content="Astra Business Centre - Maintenance Enquiries" />
+	<meta
+		name="description"
+		content="If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
+	/>
+</svelte:head>
+
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
@@ -29,15 +39,6 @@
 	});
 </script>
 
-<svelte:head>
-	<meta name="title" content="Maintenance | Astra Business Centre" />
-	<meta
-		name="description"
-		content="Need maintenance for your unit? Submit a request at Astra Business Centre. We'll address your issue promptly. Contact us today!"
-	/>
-	<title>Maintenance at Astra</title>
-</svelte:head>
-
 <main>
 	<div class="container2">
 		<div class="map-column">
@@ -56,7 +57,7 @@
 				}}
 			>
 				<h1><img src={maintenance} alt="" /> Got a problem?</h1>
-				<h5>If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance of your unit or office, please complete the form below and a member of our facilities team will get back to you as soon as possible.</h5>
+				<p class="h5">If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance of your unit or office, please complete the form below and a member of our facilities team will get back to you as soon as possible.</p>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
@@ -198,7 +199,7 @@
 		filter: invert(1);
 	}
 
-	h5 {
+	.h5 {
 		font-size: 0.85rem;
 		margin: 1rem 0 2rem;
 		font-weight: normal;
@@ -449,7 +450,7 @@
 			font-size: 1.5rem;
 		}
 
-		h5 {
+		.h5 {
 			font-size: 0.8em;
 		}
 
@@ -477,7 +478,7 @@
 			font-size: 1.2rem;
 		}
 
-		h5 {
+		.h5 {
 			font-size: 0.8rem;
 		}
 

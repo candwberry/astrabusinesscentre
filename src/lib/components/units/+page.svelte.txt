@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<meta name="title" content="Unit Availability | Astra Business Centre" />
+	<meta name="title" content="Astra Business Centre - Unit Availability" />
 	<meta
 		name="description"
 		content="Looking for office space? Check out the available units at Astra Business Centre. Flexible options and prime locations. Contact us today!"

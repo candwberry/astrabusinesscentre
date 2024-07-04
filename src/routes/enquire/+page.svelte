@@ -1,3 +1,12 @@
+<svelte:head>
+	<title>Astra Business Centre - Contact Us</title>
+	<meta name="title" content="Astra Business Centre - Contact Us" />
+	<meta
+		name="description"
+		content="To enquire about commercial or industrial units to rent in Preston, please contact us utilising the on-page form."
+	/>
+</svelte:head>
+
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
@@ -13,15 +22,6 @@
 		success = value.url.searchParams.get('success');
 	});
 </script>
-
-<svelte:head>
-	<title>Enquire at Astra</title>
-	<meta name="title" content="Contact Us" />
-	<meta
-		name="description"
-		content="Looking for office space? Enquire about renting units at Astra Business Centre. Flexible options and prime locations. Contact us today!"
-	/>
-</svelte:head>
 
 <main>
 	<div class="container2">
@@ -40,8 +40,8 @@
 					};
 				}}
 			>
-				<h1><img src={contact} alt="" />Get in touch.</h1>
-				<h5>Looking to rent a commercial or industrial unit that is easily accessible to major transport networks in the North West of England? Please utilise the following form to enquire about on-site availability and a member of our team will get back to you shortly.</h5>
+				<h1><img src={contact} alt="" />Contact Us.</h1>
+				<p class="h5">Looking to rent a commercial or industrial unit that is easily accessible to major transport networks in the North West of England? Please utilise the following form to enquire about on-site availability and a member of our team will get back to you shortly.</p>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
@@ -163,7 +163,7 @@
 		margin-right: 0.5rem;
 	}
 
-	h5 {
+	.h5 {
 		font-size: 0.85rem;
 		margin: 1rem 0 2rem;
 		font-weight: normal;
@@ -365,7 +365,7 @@
 			font-size: 1.5rem;
 		}
 
-		h5 {
+		.h5 {
 			font-size: 0.8rem;
 		}
 
@@ -392,7 +392,7 @@
 			font-size: 1.2rem;
 		}
 
-		h5 {
+		.h5 {
 			font-size: 0.8rem;
 		}
 
