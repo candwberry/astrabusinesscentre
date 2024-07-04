@@ -160,7 +160,7 @@
 
 	h1 img {
 		height: 1.5em;
-		margin-right: 0.5rem;
+		margin-right: 0.8rem;
 	}
 
 	.h5 {
