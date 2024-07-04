@@ -4,6 +4,7 @@
 	import type { ActionData } from '$types';
 	import { Turnstile } from 'svelte-turnstile';
 	import contact from '$lib/assets/contact.svg';
+	
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
 	let processing: boolean = false;
@@ -327,11 +328,11 @@
 	.form-status {
 		font-size: 0.8rem;
 		text-align: center;
+	}
 
-		& > p {
-			padding: 0;
-			margin-top: 0;
-		}
+	.form-status > p {
+		padding: 0;
+		margin-top: 8px;
 	}
 
 	.error {

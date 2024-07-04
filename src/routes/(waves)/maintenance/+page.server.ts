@@ -2,13 +2,14 @@ import nodemailer, { type TransportOptions } from 'nodemailer';
 import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 
+export const prerender = false;
+
 interface TokenValidateResponse {
 	'error-codes': string[];
 	success: boolean;
 	action: string;
 	cdata: string;
 }
-export const prerender = false;
 
 function emptyString(value: string | null | undefined) {
 	return value === null || value === undefined || value.replace(/\s/g, '') === '';
