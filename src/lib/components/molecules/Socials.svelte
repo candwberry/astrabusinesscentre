@@ -24,14 +24,6 @@
 		<TwitterIcon />
 	</a>
 	<a
-		href="https://github.com/candwberry"
-		target="_blank"
-		rel="noopener noreferrer"
-		title="Check out this website's source code on GitHub"
-	>
-		<GitHubIcon />
-	</a>
-	<a
 		href="mailto:info@astrabusinesscentre.co.uk"
 		target="_blank"
 		rel="noopener noreferrer"
