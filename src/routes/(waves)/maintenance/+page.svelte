@@ -56,7 +56,7 @@
 				}}
 			>
 				<h1><img src={maintenance} alt="" /> Got a problem?</h1>
-				<h5>If you're a tenant at Astra Business Centre and you have an issue related to maintenance. Please complete the form below and we will get back to you as soon as possible.</h5>
+				<h5>If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance of your unit or office, please complete the form below and a member of our facilities team will get back to you as soon as possible.</h5>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">

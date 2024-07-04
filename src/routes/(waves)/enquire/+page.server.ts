@@ -79,7 +79,7 @@ export const actions = {
 
 			const mailOptions = {
 				from: `"Enquiries" <${env.EMAIL_USER}>`,
-				to: 'j.white@cwberry.com',
+				to: 'info@astrabusinesscentre.co.uk',
 				subject: 'New Enquiry',
 				text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
 				html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`

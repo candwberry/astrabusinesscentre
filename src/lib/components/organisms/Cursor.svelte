@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { spring } from 'svelte/motion';
-
+	
+	let show: boolean = false;
 	let targetX: number = 0;
 	let targetY: number = 0;
 	let width: number = 16;
@@ -14,6 +15,7 @@
 	$: cursorSpring.set({ x: targetX, y: targetY });
 
 	function handleMouseMove(event: MouseEvent) {
+		show = true;	
 		if (!hover) {
 			targetX = event.clientX;
 			targetY = event.clientY;
@@ -50,7 +52,7 @@
 <!-- This fires for all elements, but the other method I had did not catch new ones..-->
 <svelte:body on:mouseover={handleMouseEnter} />
 
-<div
+<div class:show={show}
 	style="
     transform: translate({$cursorSpring.x}px, {$cursorSpring.y}px); width: {width}px; height: {height}px;
   "
@@ -64,7 +66,6 @@
 		left: 0;
 		width: 16px;
 		height: 16px;
-		translate: -50% -50%;
 		background: linear-gradient(120deg, white, white);
 		pointer-events: none;
 		mix-blend-mode: exclusion;
@@ -72,6 +73,12 @@
 		transition: width 0.2s ease, height 0.2s ease;
 		animation: shape 10s linear alternate infinite, size 15s ease infinite;
 		z-index: 999;
+		display: none;
+		translate: -50% -50%;
+	}
+
+	.show {
+		display: block;
 	}
 
 	@keyframes shape {

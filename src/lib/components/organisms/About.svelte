@@ -11,12 +11,11 @@
 			>
 		</h2>
 		<p style="margin-bottom: 1rem;">
-			<strong>Astra Business Centre</strong> offers companies and individuals spacious,
-			fully secure office and industrial units for lease in Preston.
-			Conveniently located near the M6 motorway, the
-			centre features cellular meeting rooms, WC facilities, kitchens, and
-			reception areas, designed to meet the needs of modern working
-			practices.
+			<strong>Astra Business Centre</strong> offers companies spacious, fully
+			secure office and industrial units for lease at economical prices in
+			Preston. Conveniently located near the M6 motorway, the site features
+			meeting rooms, WC facilities, kitchens, and reception areas that are
+			designed to meet the needs of modern working practices.
 		</p>
 		<div class="socials">
 			<Socials />
@@ -110,7 +109,7 @@
 		.image {
 			width: 220px;
 			height: 220px;
-			
+
 			@include for-phone-only {
 				display: none;
 			}

@@ -40,7 +40,7 @@
 				}}
 			>
 				<h1><img src={contact} alt="" />Get in touch.</h1>
-				<h5>Looking for a commercial or industrial unit in Preston? Please enquire utilising the form below and we will get back to you shortly.</h5>
+				<h5>Looking to rent a commercial or industrial unit that is easily accessible to major transport networks in the North West of England? Please utilise the following form to enquire about on-site availability and a member of our team will get back to you shortly.</h5>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
