@@ -39,7 +39,7 @@
 						{#if company.includes('#NONE')}
 							<tr style="font-weight: 600;">
 								<td>{unit}</td>
-								<td><a href="/enquire" style="color: #ff6600;">Available to rent!</a></td>
+								<td><a href="/contactus" style="color: #ff6600;">Available to rent!</a></td>
 
 								<td>{size}</td>
 							</tr>
@@ -71,7 +71,7 @@
 						{#if company.includes('#NONE')}
 							<tr style="font-weight: 900;">
 								<td>{unit}</td>
-								<td style="background-color: #ff6600"><a href="/enquire">Available to rent!</a></td>
+								<td style="background-color: #ff6600"><a href="/contactus">Available to rent!</a></td>
 								<td>{size}</td>
 							</tr>
 						{:else}

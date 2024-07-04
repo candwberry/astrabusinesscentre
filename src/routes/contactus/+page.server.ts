@@ -94,6 +94,6 @@ export const actions = {
 			return fail(422, { error: 'Umm, something went wrong, please try again!' });
 		}
 
-		return redirect(303, '/enquire?success=true');
+		return redirect(303, '/contactus?success=true');
 	}
 };

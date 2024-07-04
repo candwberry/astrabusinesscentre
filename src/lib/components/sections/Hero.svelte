@@ -14,7 +14,7 @@
 	</h1>
 	<h2 class="intro">Astra Business Centre, Roman Way, PR2 5AP</h2>
 	<div class="ctas">
-		<Button color="secondary" href="/enquire">
+		<Button color="secondary" href="/contactus">
 			<ContactIcon slot="icon" />
 			Enquire Now
 		</Button>
