@@ -1,13 +1,8 @@
 <script>
-	import Header from '$lib/components/organisms/Header.svelte';
-	import Footer from '$lib/components/organisms/Footer.svelte';
-
-	import Button from '$lib/components/atoms/Button.svelte';
-	import Error from '$lib/icons/error.svelte';
+	import Button from '$lib/components/elements/Button.svelte';
+	import Error from '$lib/assets/svg/error.svelte';
 	import { page } from '$app/stores';
 </script>
-
-<Header showBackground />
 
 <main>
 	<div class="error-page">
@@ -23,8 +18,6 @@
 		</div>
 	</div>
 </main>
-
-<Footer />
 
 <style lang="scss">
 	.error-page {
