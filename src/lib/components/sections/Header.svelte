@@ -13,6 +13,11 @@
 		toggleBodyScroll(isMenuOpen);
 	};
 
+	const closeMenu = () => {
+		isMenuOpen = false;
+		toggleBodyScroll(isMenuOpen);
+	};
+
 	let shorthand = true;
 	// put a watcher for width going to 1024px;
 	onMount(() => {
@@ -21,7 +26,6 @@
 		const handleTabletChange = (e: any) => {
 			if (e.matches) {
 				shorthand = true;
-				toggleBodyScroll(false);
 			} else {
 				shorthand = false;
 				toggleBodyScroll(false);
@@ -53,15 +57,15 @@
 				<a class="hideUntilMobile" id="aa" on:click={toggleMenu} href="/"><div class="hideUntilMobile">
 					<Home />
 				</div>Home</a>
-				<a on:click={toggleMenu} href="/units"><div class="hideUntilMobile">
+				<a on:click={closeMenu} href="/units"><div class="hideUntilMobile">
 					<UnitIcon />
 				</div>Unit Availability</a>
-				<a on:click={toggleMenu} href="/contactus">
+				<a on:click={closeMenu} href="/contactus">
 				<div class="hideUntilMobile">
 					<ContactIcon />
 				</div>
 					Contact Us</a>
-				<a on:click={toggleMenu} href="/maintenance">
+				<a on:click={closeMenu} href="/maintenance">
 				<div class="hideUntilMobile">
 					<Maintenance />
 				</div>
