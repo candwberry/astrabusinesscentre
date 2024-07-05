@@ -7,8 +7,8 @@
 
 <ContentSection 
     id="enquirenow"
-    title="Enquire With Us"
-    description="Like what you see? Then find out more below!"
+    title="Enquire Today"
+    description="With a selection of premium office and industrial units to rent on fixed term contracts, see how Astra Business Centre can help your business succeed. Enquire today or browse our Unit Availability to find out more."
 >
 <div class="flex">
     <Button color="primary" size="large" href="/units">
@@ -17,7 +17,7 @@
     </Button>
     <Button color="secondary" size="large" href="/contactus">
         <ContactIcon />
-        Enquire Here Now
+        Enquire Now
     </Button>
 </div>
 </ContentSection>
