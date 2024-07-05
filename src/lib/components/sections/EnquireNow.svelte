@@ -8,7 +8,7 @@
 <ContentSection 
     id="enquirenow"
     title="Enquire With Us"
-    description="Like what you hear? Then come speak to us out below!."
+    description="Like what you see? Then find out more below!"
 >
 <div class="flex">
     <Button color="primary" size="large" href="/units">
