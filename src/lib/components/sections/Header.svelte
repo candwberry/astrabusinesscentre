@@ -8,7 +8,10 @@
 
 	export let showBackground = false;
 	let isMenuOpen = false; 
-	const toggleMenu = () => (isMenuOpen = !isMenuOpen);
+	const toggleMenu = () => {
+		isMenuOpen = !isMenuOpen;
+		toggleBodyScroll(isMenuOpen);
+	};
 
 	let shorthand = true;
 	// put a watcher for width going to 1024px;
@@ -25,6 +28,15 @@
 		mediaQuery.addListener(handleTabletChange);
 		handleTabletChange(mediaQuery);
 	});
+
+	function toggleBodyScroll(disable: boolean) {
+		if (disable) {
+			document.body.style.overflow = 'hidden';
+			window.scrollTo(0, 0);
+		} else {
+			document.body.style.overflow = '';
+		}
+	}
 </script>
 
 <header class:has-background={showBackground}>
