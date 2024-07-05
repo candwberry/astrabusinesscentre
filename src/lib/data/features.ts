@@ -1,4 +1,4 @@
-import type { Feature } from '$lib/utils/types';
+import type { Feature } from '$lib/data/types';
 
 export default [
 	{

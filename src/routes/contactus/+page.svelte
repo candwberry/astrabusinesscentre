@@ -12,7 +12,7 @@
 	import { page } from '$app/stores';
 	import type { ActionData } from '$types';
 	import { Turnstile } from 'svelte-turnstile';
-	import contact from '$lib/assets/svg/contact.svg';
+	import Contact from '$lib/assets/svg/contact-big.svelte';
 	
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
@@ -40,7 +40,7 @@
 					};
 				}}
 			>
-				<h1><img src={contact} alt="" />Contact Us</h1>
+				<h1><span style="margin-right: 0.6rem;"><Contact /></span>Contact Us</h1>
 				<p class="h5">Looking to rent a commercial or industrial unit that is easily accessible to major transport networks in the North West of England? Please utilise the following form to enquire about on-site availability and a member of our team will get back to you shortly.</p>
 				<div style="margin: auto 0;">
 					<div class="form-grid">

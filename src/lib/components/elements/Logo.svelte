@@ -81,4 +81,11 @@
 			}
 		}
 	}
+
+	
+	@media (max-width: 419px) {
+		text {
+			display: none;
+		}
+	}
 </style>

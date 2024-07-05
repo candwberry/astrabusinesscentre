@@ -1,15 +1,19 @@
 <script lang="ts">
 	import Logo from '$lib/components/elements/Logo.svelte';
 	import { onMount } from 'svelte';
+	import UnitIcon from '$lib/assets/svg/units.svelte';
+	import ContactIcon from '$lib/assets/svg/contact.svelte';
+	import Home from '$lib/assets/svg/home.svelte';
+    import Maintenance from '$lib/assets/svg/maintenance.svelte';
 
 	export let showBackground = false;
-	let isMenuOpen = false;
+	let isMenuOpen = false; 
 	const toggleMenu = () => (isMenuOpen = !isMenuOpen);
 
 	let shorthand = true;
 	// put a watcher for width going to 1024px;
 	onMount(() => {
-		isMenuOpen = false;
+		isMenuOpen = false; // Set to true when testing menu changes (locally) :)
 		const mediaQuery = window.matchMedia('(max-width: 767px)');
 		const handleTabletChange = (e: any) => {
 			if (e.matches) {
@@ -29,10 +33,24 @@
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>
-			<a class="hideUntilMobile" on:click={toggleMenu} href="/">Home</a>
-			<a on:click={toggleMenu} href="/contactus">Contact Us</a>
-			<a on:click={toggleMenu} href="/maintenance">Maintenance</a>
-			<!--<ThemeToggle />-->
+			<div class="linkslinks">
+				<a class="hideUntilMobile" id="aa" on:click={toggleMenu} href="/"><div class="hideUntilMobile">
+					<Home />
+				</div>Home</a>
+				<a on:click={toggleMenu} href="/units"><div class="hideUntilMobile">
+					<UnitIcon />
+				</div>Unit Availability</a>
+				<a on:click={toggleMenu} href="/contactus">
+				<div class="hideUntilMobile">
+					<ContactIcon />
+				</div>
+					Contact Us</a>
+				<a on:click={toggleMenu} href="/maintenance">
+				<div class="hideUntilMobile">
+					<Maintenance />
+				</div>
+					Maintenance</a>	
+			</div>
 		</div>
 		<button
 			class="hamburger"
@@ -49,12 +67,13 @@
 
 <style lang="scss">
 	@import '$lib/assets/css/breakpoints.scss';
-	.hideUntilMobile {
+	.hideUntilMobile, #aa {
 		display: none;
 		@include for-phone-only {
-			display: block;
+			display: flex;
 		}
 	}
+
 	.hamburger {
 		display: none;
 		flex-direction: column;
@@ -93,7 +112,7 @@
 		padding: 30px 0;
 
 		@include for-phone-only {
-			padding: 20px 0;
+			padding: 20px;
 		}
 
 		&.has-background {
@@ -123,7 +142,11 @@
 				.links {
 					flex-direction: column;
 					justify-content: center;
-					background: rgba(0, 0, 0, 0.99);
+					background: linear-gradient(
+						60deg,
+						#202b67 0%,
+						#212d6d 100%
+					);
 					position: fixed;
 					top: 0;
 					right: 0;
@@ -135,7 +158,7 @@
 					color: white;
 					z-index: 5000;
 					font-size: 2rem;
-					line-height: 3rem;
+					line-height: 0.5rem;
 				}
 
 				.links.open {
@@ -149,8 +172,31 @@
 			flex: 1;
 		}
 
-		a {
-			color: var(--color--text-inverse);
+		.linkslinks {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 30px;
+			flex-direction: row;
+
+			a {
+				@include for-phone-only {
+					margin-right: 20px;
+					font-size: 1.5rem;
+					scale: 1.2;
+					&:hover {
+						scale: 1.4;
+					}
+					gap: 10px;	
+				}
+			}
+
+			@include for-phone-only {
+				align-items: stretch;
+				flex-direction: column
+			}
+
+
 		}
 
 		.links {
@@ -158,14 +204,47 @@
 			align-items: center;
 			justify-content: flex-end;
 			gap: 30px;
+			flex-direction: row;
 
 			a {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+
 				text-decoration: none;
 
 				&:hover {
 					scale: 1.2;
 				}
+
+				@include for-phone-only {
+					margin-right: 20px;
+					font-size: 1.5rem;
+					scale: 1.1;
+					&:hover {
+						scale: 1.2;
+					}
+					gap: 10px;	
+				}
 			}
+
+			@include for-phone-only {
+				align-items: left;
+			}
+			
+		}
+		a, a.hideUntilMobile, #aa {
+			color: var(--color--text-inverse);
+			align-items: left;
+
+		}
+
+	}
+
+	div.hideUntilMobile {
+		@include for-phone-only {
+			padding-right: 10px;
+			border-right: 2px solid #ee6925;
 		}
 	}
 
@@ -178,4 +257,5 @@
 			-webkit-user-select: none;
 		}
 	}
+
 </style>

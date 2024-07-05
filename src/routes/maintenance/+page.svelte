@@ -12,7 +12,7 @@
 	import { enhance } from '$app/forms';
 	import { page } from '$app/stores';
 	import Map from '$lib/components/elements/Map.svelte';
-	import maintenance from '$lib/assets/svg/maintenance.svg';
+	import Maintenance from '$lib/assets/svg/maintenance-big.svelte';
 	import type { ActionData } from '$types';
 	import { Turnstile } from 'svelte-turnstile';
 
@@ -56,7 +56,7 @@
 					};
 				}}
 			>
-				<h1><img src={maintenance} alt="" /> Got a problem?</h1>
+				<h1><span style="margin-right: 0.6rem;"><Maintenance /></span>Got a problem?</h1>
 				<p class="h5">If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance of your unit or office, please complete the form below and a member of our facilities team will get back to you as soon as possible.</p>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
@@ -487,5 +487,9 @@
 		button {
 			font-size: 0.8rem;
 		}
+	}
+
+	svg {
+		scale: 2;
 	}
 </style>

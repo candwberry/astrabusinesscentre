@@ -9,7 +9,8 @@
 	import About from '$lib/components/sections/About.svelte';
 	import Location from '$lib/components/sections/Location.svelte';
 	import Features from '$lib/components/sections/Features.svelte';
-	import type { Feature } from '$lib/types';
+	import EnquireNow from '$lib/components/sections/EnquireNow.svelte';
+	import type { Feature } from '$lib/data/types';
 
 	export let data: {
 		features: Feature[];
@@ -21,6 +22,16 @@
 <div class="container">
 	<Hero />
 	<About />
-	<hr style="height: 0; border: 1px solid #ee6925; margin: 16px auto; "/>
+	<hr/>
 	<Location />
+	<hr/>
+	<EnquireNow/>
 </div>
+
+<style>
+	hr {
+		height: 0;
+		border: 1px solid #ee6925;
+		margin: 16px auto;
+	}
+</style>
