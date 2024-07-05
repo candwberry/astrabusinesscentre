@@ -57,10 +57,10 @@
 				<a class="hideUntilMobile" id="aa" on:click={toggleMenu} href="/"><div class="hideUntilMobile">
 					<Home />
 				</div>Home</a>
-				<a on:click={closeMenu} href="/units"><div class="hideUntilMobile">
+				<a on:click={closeMenu} href="/unit-availability"><div class="hideUntilMobile">
 					<UnitIcon />
 				</div>Unit Availability</a>
-				<a on:click={closeMenu} href="/contactus">
+				<a on:click={closeMenu} href="/contact-us">
 				<div class="hideUntilMobile">
 					<ContactIcon />
 				</div>

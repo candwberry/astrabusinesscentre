@@ -107,7 +107,7 @@
 							appearance={'interaction-only'}
 						/>
 					</div>
-					<button class="button size--medium color--secondary style--solid" type="submit">Send request</button>
+					<button class="button size--medium color--secondary style--solid" type="submit">Send Request</button>
 				</div>
 				<div class="form-status">
 					{#if form?.error}

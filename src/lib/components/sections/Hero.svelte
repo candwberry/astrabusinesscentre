@@ -14,11 +14,11 @@
 	</h1>
 	<h2 class="intro">Astra Business Centre, Roman Way, PR2 5AP</h2>
 	<div class="ctas">
-		<Button color="primary" href="/units">
+		<Button color="primary" href="/unit-availability">
 			<UnitIcon slot="icon" />
 			View Availability
 		</Button>
-		<Button color="secondary" href="/contactus">
+		<Button color="secondary" href="/contact-us">
 			<ContactIcon slot="icon" />
 			Enquire Now
 		</Button>

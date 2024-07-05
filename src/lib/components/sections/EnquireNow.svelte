@@ -11,11 +11,11 @@
     description="With a selection of premium office and industrial units to rent on fixed term contracts, see how Astra Business Centre can help your business succeed. Browse our unit availability our enquire today to find out more."
 >
 <div class="flex">
-    <Button color="primary" href="/units">
+    <Button color="primary" href="/unit-availability">
         <UnitIcon />
         View Availability
     </Button>
-    <Button color="secondary" href="/contactus">
+    <Button color="secondary" href="/contact-us">
         <ContactIcon />
         Enquire Now
     </Button>

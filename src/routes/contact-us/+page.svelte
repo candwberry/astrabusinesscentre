@@ -75,7 +75,7 @@
 							appearance={'interaction-only'}
 						/>
 					</div>
-					<button class="button size--medium color--secondary style--solid" type="submit">Send enquiry</button>
+					<button class="button size--medium color--secondary style--solid" type="submit">Send Enquiry</button>
 				</div>
 				<div class="form-status">
 					{#if form?.error}

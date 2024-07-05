@@ -33,13 +33,13 @@
 						{#each unit.features as feature}
 						<div style="display: flex; flex-direction: row; align-items: center">
 							<img src={feature[0]} alt={""} style="width: 30px; height: 30px; margin-right: 0.5rem;" />
-							<p>{feature[1]}</p>
+							<p style="white-space: nowrap">{feature[1]}</p>
 						</div>
 						{/each}
 					</div>
 					<div style="padding: 0 2rem;">
-						<Button color="secondary" href="/contactus">
-							Enquire Here
+						<Button color="secondary" href="/contact-us">
+							Enquire Now
 						</Button>
 					</div>
 				</div>
