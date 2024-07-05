@@ -20,11 +20,11 @@
 				<enhanced:img src="/static/jpg/astra-business-centre-office.jpg" alt="Astra Business Centre Office" />
 				<div style="padding: 0.5rem 1rem; background-color: white; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
 					<div>
-						<p style="font-weight: 700; font-size: 1.2rem;">£{unit.price} pcm</p>
-						<p style="font-weight: 600; color: #555">{unit.sq_ft} sq ft</p>
+						<p style="font-weight: 700; font-size: 1.2rem;">£{"TBC"} pcm</p>
+						<p style="font-weight: 600; color: #555">{"TBC"} sq ft</p>
 					</div>
 					<div>
-						<p style="font-size: 1.1rem; font-weight: 600;">{unit.name}</p>
+						<p style="font-size: 1.1rem; font-weight: 600;">{"Unit TBC"}</p>
 				
 					</div>
 				</div>
