@@ -4,7 +4,7 @@
 	<meta name="title" content="Astra Business Centre - Unit Availability" />
 	<meta
 		name="description"
-		content="Searching for commercial and industrial units to rent in Preston? Browse our current availabiliy and enquire today."
+		content="Searching for commercial and industrial units to rent in Preston? Browse our current availability and enquire today."
 	/>
 </svelte:head>
 
