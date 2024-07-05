@@ -11,7 +11,7 @@
 			>
 		</h2>
 		<p style="margin-bottom: 1rem;">
-			<strong>Astra Business Centre</strong> provides businesses with spacious, fully secure office and industrial units available for lease at economical rates. Based in Preston near the Haighton Interchange, the site features meeting rooms, Wi-Fi, parking, WC facilities, kitchens, and reception areas that meet the needs of modern working practices.</p>
+			<strong>Astra Business Centre</strong> provides businesses with spacious, fully secure office and industrial units that are available for lease at economical rates. Based in Preston near the Haighton Interchange, the site features meeting rooms, Wi-Fi, parking, WC facilities, kitchens, and reception areas that meet the needs of modern working practices.</p>
 		<div class="socials">
 			<Socials />
 		</div>
