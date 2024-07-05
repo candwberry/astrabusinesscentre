@@ -29,8 +29,8 @@
 					</div>
 				</div>
 				<div style="justify-self: flex-end; justify-content: center; align-items: center; padding-bottom: 1rem; width: 100%;">
-					<div style="display: flex; flex-direction: row; align-items: center; width: 100%; justify-content: center; padding: 1rem 1rem; gap: 1rem;">
-						{#each unit.features as feature}
+					<div class="features">
+						{#each (unit.features) as feature}
 						<div style="display: flex; flex-direction: row; align-items: center">
 							<img src={feature[0]} alt={""} style="width: 30px; height: 30px; margin-right: 0.5rem;" />
 							<p style="white-space: nowrap">{feature[1]}</p>
@@ -85,11 +85,23 @@
 	}
 
 	img {
-		width: 600px;
+		width: 700px;
 		height: 292px;
 		object-fit: cover;
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
+	}
+
+	//style="display: flex; flex-direction: row; align-items: center; width: 100%; justify-content: center; padding: 1rem 1rem; gap: 1rem;"
+	.features {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-items: center;
+		width: 100%;
+		justify-content: center;
+		padding: 1rem 1rem;
+		gap: 1rem;
 	}
 
 	@media (max-width: 1023px) {

@@ -10,10 +10,11 @@ import wastesvg from '$lib/assets/svg/waste.svg';
 let wc: string[] = [wcsvg, "Toilets"];
 let wifi: string[] = [wifisvg, "Wi-Fi"];
 let parking: string[] = [parkingsvg, "Parking"];
-let kitchen: string[] = [kitchensvg, "Kitchen"];
-let waste: string[] = [wastesvg, "Waste"];
+let kitchen: string[] = [kitchensvg, "Kitchen Facilities"];
+let waste: string[] = [wastesvg, "Waste Management"];
 
-/* ENTER THE ACTIVE UNITS BELOW :)
+/* ENTER THE ACTIVE UNITS BELOW :) Note; you will want to put the features in an order that will wrap nicely.. i.e. don't put long features
+next to each other, or they will likely take up one row each when you could pair a long with a short (as in the name of the feature..)
 Example:
 const activeUnits: Unit[] = [
     { name: 'Unit1', sq_ft: 100, features: [wc, wifi], price: 1000 },
@@ -25,7 +26,7 @@ const activeUnits: Unit[] = [
         name: 'Unit 1',
         sq_ft: 200,
         features: [
-            wc, wifi, parking
+            wifi, parking, waste
         ],
         price: 1000
     },
@@ -33,7 +34,7 @@ const activeUnits: Unit[] = [
         name: 'Unit 2',
         sq_ft: 100,
         features: [
-            wc, wifi, kitchen
+            wc, wifi, kitchen, 
         ],
         price: 500
     },
@@ -41,7 +42,7 @@ const activeUnits: Unit[] = [
         name: 'Unit 3',
         sq_ft: 500,
         features: [
-            wc, wifi, waste
+            kitchen, wc, waste
         ],
         price: 1000
     }
