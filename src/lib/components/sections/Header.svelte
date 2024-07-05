@@ -23,6 +23,7 @@
 				shorthand = true;
 			} else {
 				shorthand = false;
+				toggleBodyScroll(false);
 			}
 		};
 		mediaQuery.addListener(handleTabletChange);
