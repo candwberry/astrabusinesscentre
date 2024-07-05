@@ -21,6 +21,7 @@
 		const handleTabletChange = (e: any) => {
 			if (e.matches) {
 				shorthand = true;
+				toggleBodyScroll(false);
 			} else {
 				shorthand = false;
 				toggleBodyScroll(false);
