@@ -2,12 +2,12 @@
 	export let color: 'primary' | 'secondary' = 'primary';
 </script>
 
-<mark class={color}>
+<strong class={color}>
 	<slot />
-</mark>
+</strong>
 
 <style lang="scss">
-	mark {
+	strong {
 		--mark-color: transparent;
 
 		margin-inline: calc(0.1em * -1);
