@@ -39,7 +39,7 @@
 	});
 </script>
 
-<main>
+<div class="main">
 	<div class="container2">
 		<div class="map-column">
 			<Map bind:this={map} callback={handleMapInput} />
@@ -123,7 +123,7 @@
 			</form>
 		</div>
 	</div>
-</main>
+</div>
 
 {#if showModal}
 	<div class="modal-overlay" on:click={toggleModal}>
@@ -135,7 +135,7 @@
 {/if}
 
 <style lang="scss">
-	main {
+	.main {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -465,7 +465,7 @@
 	}
 
 	@media (max-width: 480px) {
-		main {
+		.main {
 			padding: 0 1rem;
 		}
 

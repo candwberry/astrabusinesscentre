@@ -28,6 +28,8 @@
 		height: 340px;
 		width: 100%;
 		background: linear-gradient(60deg, var(--color--waves-start) 0%, var(--color--waves-end) 100%);
+		border-bottom: 2px solid #202b67;
+
 		display: grid;
 		grid-template-rows: 120px 1fr;
 		color: var(--color--text-inverse);
