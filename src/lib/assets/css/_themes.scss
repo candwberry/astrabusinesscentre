@@ -16,7 +16,7 @@
 	@include define-color('text-inverse', #ffffff);
 	@include define-color('text-inverse-shade', #9eb4b5);
 
-	@include define-color('page-background', #f4f8fb);
+	@include define-color('page-background', #202b67);
 	@include define-color('post-page-background', #f3fbfc);
 	@include define-color('card-background', #ffffff);
 
@@ -82,12 +82,12 @@
 	@include base-theme;
 
 	&[data-theme='dark'] {
-		@include dark-theme;
+		@include base-theme;
 	}
 
 	&[data-theme='auto'] {
 		@media (prefers-color-scheme: dark) {
-			@include dark-theme;
+			@include base-theme;
 		}
 	}
 }

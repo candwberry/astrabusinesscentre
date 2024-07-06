@@ -113,7 +113,7 @@
 	@media (max-width: 767px) {
 		.container2 {
 			grid-template-columns: repeat(1, 1fr);
-			padding: 2rem 1rem;
+			padding: 2rem;
 		}
 	}
 
