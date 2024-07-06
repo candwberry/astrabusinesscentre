@@ -12,7 +12,7 @@
 
 body {
 	--body-background-color: var(--color--page-background);
-	background-color: var(--body-background-color);
+	background-color: #202b67;
 	color: var(--color--text);
 	fill: var(--color--text);
 	transition: all 0.4s ease;
@@ -38,6 +38,7 @@ html {
 
 main {
 	background-color: var(--color--page-background);
+	border-bottom: 2px solid #202b67;
 }
 
 #svelte-root {
