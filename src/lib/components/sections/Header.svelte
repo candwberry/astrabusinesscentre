@@ -128,6 +128,11 @@
 	}
 
 	header {
+		background-color: linear-gradient(
+				60deg,
+				var(--color--waves-start) 0%,
+				var(--color--waves-end) 100%
+			);
 		position: relative;
 		padding: 30px 0;
 
