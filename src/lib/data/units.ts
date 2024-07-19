@@ -29,22 +29,6 @@ const activeUnits: Unit[] = [
             wifi, parking, waste
         ],
         price: 1000
-    },
-    {
-        name: 'Unit 2',
-        sq_ft: 100,
-        features: [
-            wc, wifi, kitchen, 
-        ],
-        price: 500
-    },
-    {
-        name: 'Unit 3',
-        sq_ft: 500,
-        features: [
-            kitchen, wc, parking, wifi
-        ],
-        price: 1000
     }
 ];
 export default activeUnits;
