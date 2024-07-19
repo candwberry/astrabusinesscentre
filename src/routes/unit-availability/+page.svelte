@@ -20,7 +20,7 @@
 				<enhanced:img src="/static/jpg/astra-business-centre-office.jpg" alt="Astra Business Centre Office" />
 				<div style="padding: 0.5rem 1rem; background-color: white; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
 					<div>
-						<p style="font-weight: 700; font-size: 0.7rem;">No units are available at present</p>
+						<p style="font-weight: 700; font-size: 1rem; padding-bottom: 0.3rem;">No units are currently available</p>
 						<p style="font-weight: 600; color: #555">Please check back soon</p>
 					</div>
 				</div>
