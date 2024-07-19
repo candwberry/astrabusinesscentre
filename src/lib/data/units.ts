@@ -26,7 +26,7 @@ const activeUnits: Unit[] = [
         name: 'Unit 1',
         sq_ft: 200,
         features: [
-            wifi, parking, waste
+           
         ],
         price: 1000
     }
