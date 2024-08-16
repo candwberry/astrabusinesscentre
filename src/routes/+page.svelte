@@ -4,7 +4,7 @@
 	<meta name="description" content="Astra Business Centre offers companies spacious, fully secure office and industrial units for lease at economical prices in Preston." />
 	<script type="application/ld+json">
 	[{
-		"@context": https://schema.org/,
+		"@context": "https://schema.org/",
 		"@type": "WebPage",
 		"publisher": {
 			"@type": "Organization",
