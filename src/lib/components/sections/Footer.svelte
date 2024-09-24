@@ -13,9 +13,7 @@
 		</div>
 		<div class="credits">
 			Powered by <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer"
-				>SvelteKit</a
-			>. Icons by
-			<a href="https://iconoir.com/" target="_blank" rel="noopener noreferrer">Iconoir</a>.
+				>SvelteKit</a>.
 		</div>
 		<div class="socials">
 			<Socials />
