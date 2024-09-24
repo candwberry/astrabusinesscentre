@@ -13,7 +13,7 @@
 		</div>
 		<div class="credits">
 			Powered by <a href="https://kit.svelte.dev/" target="_blank" rel="noopener noreferrer"
-				>SvelteKit</a>.
+				>SvelteKit</a>
 		</div>
 		<div class="socials">
 			<Socials />
