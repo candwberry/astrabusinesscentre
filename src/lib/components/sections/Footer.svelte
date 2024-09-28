@@ -38,6 +38,13 @@
 			font-size: 95%;
 			color: var(--color--text-inverse);
 
+			.img {
+				display: block;
+                max-width: 100%;
+                margin: auto;
+				padding: 35px 0;
+			}
+
 			.credits {
 				font-weight: 400;
 				font-size: 90%;
