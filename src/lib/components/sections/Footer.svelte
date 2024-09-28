@@ -19,7 +19,7 @@
 
 <style lang="scss">
 	footer {
-		height: 340px;
+		height: 270px;
 		width: 100%;
 
 		display: grid;
