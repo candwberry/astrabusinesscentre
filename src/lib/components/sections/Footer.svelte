@@ -53,8 +53,8 @@
 
 		.svg-center {
 				display: block;
-                max-width: 100%;
-                margin: auto;
+                		max-width: 100%;
+                		margin: auto;
 				margin-top: 50px;
 				margin-bottom: 15px;
 			}
