@@ -21,7 +21,6 @@
 	footer {
 		height: 340px;
 		width: 100%;
-		background: linear-gradient(60deg, var(--color--waves-start) 0%, var(--color--waves-end) 100%);
 
 		display: grid;
 		grid-template-rows: 120px 1fr;
@@ -34,6 +33,7 @@
 			gap: 15px;
 			font-weight: 600;
 			text-align: center;
+			margin-top: 25px;
 			color: var(--color--text-inverse);
 
 			.credits {
