@@ -38,13 +38,6 @@
 			font-size: 95%;
 			color: var(--color--text-inverse);
 
-			.content > img {
-				display: block;
-                max-width: 100%;
-                margin: auto;
-				padding: 20px 0;
-			}
-
 			.credits {
 				font-weight: 400;
 				font-size: 90%;
@@ -57,6 +50,13 @@
 				gap: 20px;
 			}
 		}
+
+		> img {
+				display: block;
+                max-width: 100%;
+                margin: auto;
+				padding: 20px 0;
+			}
 
 		a {
 			color: var(--color--text-inverse);
