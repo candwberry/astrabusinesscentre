@@ -33,7 +33,7 @@
 			gap: 15px;
 			font-weight: 600;
 			text-align: center;
-			margin-top: 25px;
+			margin-top: 50px;
 			color: var(--color--text-inverse);
 
 			.credits {
