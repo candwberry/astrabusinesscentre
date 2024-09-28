@@ -69,7 +69,7 @@
 		justify-content: center;
 		padding: 0 1rem;
 		margin-top: 2%;
-		margin-bottom: 5%;
+		margin-bottom: 4%;
 	}
 
 	.container2 {
