@@ -22,6 +22,8 @@
 	footer {
 		height: 270px;
 		width: 100%;
+		background-color: #202b67;
+
 
 		display: grid;
 		grid-template-rows: 120px 1fr;
