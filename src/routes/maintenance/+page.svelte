@@ -153,6 +153,7 @@
 		justify-content: center;
 		padding: 0 1rem;
 		margin-top: 2%;
+		margin-bottom: 5%;
 	}
 
 	.container2 {
