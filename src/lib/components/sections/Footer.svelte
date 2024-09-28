@@ -38,11 +38,11 @@
 			font-size: 95%;
 			color: var(--color--text-inverse);
 
-			.img {
+			.content > img {
 				display: block;
                 max-width: 100%;
                 margin: auto;
-				padding: 35px 0;
+				padding: 20px 0;
 			}
 
 			.credits {
