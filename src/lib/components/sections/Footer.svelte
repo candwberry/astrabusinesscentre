@@ -34,6 +34,7 @@
 			font-weight: 600;
 			text-align: center;
 			margin-top: 50px;
+			font-size: 95%;
 			color: var(--color--text-inverse);
 
 			.credits {

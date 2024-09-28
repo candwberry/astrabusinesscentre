@@ -27,6 +27,7 @@
         display: flex;
         flex-direction: row;
         gap: 12px;
+        margin-bottom: 30px;
 
 		@media (max-width: 767px) {
             flex-direction: column;
