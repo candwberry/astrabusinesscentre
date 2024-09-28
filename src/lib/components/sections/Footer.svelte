@@ -1,12 +1,8 @@
 <script>
-	import FooterWave from '$lib/assets/svg/footer-wave.svelte';
-	import Socials from '$lib/components/elements/InvertedSocials.svelte';
+		import Socials from '$lib/components/elements/InvertedSocials.svelte';
 </script>
 
 <footer>
-	<div class="wave">
-		<FooterWave />
-	</div>
 	<div class="content">
 		<div class="copyright">
 			© 2024 CWBG Ltd - Astra Business Centre
