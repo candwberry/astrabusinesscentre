@@ -5,19 +5,16 @@
 		name="description"
 		content="If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
 	/>
+	
 	<script type="application/ld+json">
 	[{
 		"@context": "https://schema.org/",
 		"@type": "WebPage",
-		"publisher": {
-			"@type": "Organization",
-			"name": "Astra Business Centre",
-			"url": "https://www.astrabusinesscentre.co.uk/maintenance"
-		},
-		"name": "Astra Business Centre - Maintenance Enquiries",
-		"description": "If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. ",
+	     "name": "Astra Business Centre - Maintenance Enquiries",
+		"description": "If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
 	}]
 	</script>
+
 </svelte:head>
 
 <script lang="ts">

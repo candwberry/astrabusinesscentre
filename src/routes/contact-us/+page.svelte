@@ -5,23 +5,20 @@
 		name="description"
 		content="To enquire about commercial or industrial units to rent in Preston, please contact us utilising the on-page form."
 	/>
+
 	<script type="application/ld+json">
 	[{
-		"@context": "https://schema.org/",
-		"@type": "WebPage",
-		"publisher": {
-			"@type": "Organization",
-			"name": "Astra Business Centre",
-			"url": "https://www.astrabusinesscentre.co.uk/contact-us"
-		},
-		"name": "Astra Business Centre - Contact Us",
-		"description": "To enquire about commercial or industrial units to rent in Preston, please contact us utilising the on-page form.",
-		"primaryImageOfPage": {
-			"@type": "ImageObject",
-			"url": "https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office-enquire.jpg"
-		}
-	}]
+	"@context": "https://schema.org/",
+	"@type": "WebPage",
+	"name": "Astra Business Centre - Contact Us",
+	"description": "To enquire about commercial or industrial units to rent in Preston, please contact us utilising the on-page form.",
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office-enquire.jpg"
+	}
+    }]
 	</script>
+	
 </svelte:head>
 
 <script lang="ts">

@@ -6,23 +6,20 @@
 		name="description"
 		content="Searching for commercial and industrial units to rent in Preston? Browse our current availability and enquire today."
 	/>
-	<script type="application/ld+json">
-	[{
-		"@context": "https://schema.org/",
-		"@type": "WebPage",
-		"publisher": {
-			"@type": "Organization",
-			"name": "Astra Business Centre",
-			"url": "https://www.astrabusinesscentre.co.uk/unit-availability"
-		},
-		"name": "Astra Business Centre - Unit Availability",
-		"description": "Searching for commercial and industrial units to rent in Preston? Browse our current availability and enquire today.",
-		"primaryImageOfPage": {
-			"@type": "ImageObject",
-			"url": "https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office.jpg"
-		}
-	}]
-	</script>
+
+<script type="application/ld+json">
+[{
+	"@context": "https://schema.org/",
+	"@type": "WebPage",
+	"name": "Astra Business Centre - Unit Availability",
+	"description": "Searching for commercial and industrial units to rent in Preston? Browse our current availability and enquire today.",
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office.jpg"
+	}
+}]
+</script>
+
 </svelte:head>
 
 <script lang="ts">
