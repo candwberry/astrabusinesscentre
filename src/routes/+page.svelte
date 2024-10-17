@@ -19,6 +19,7 @@
 		}
 	}]
 	</script>
+	
 </svelte:head>
 
 <script lang="ts">
