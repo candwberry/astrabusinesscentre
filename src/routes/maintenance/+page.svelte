@@ -3,8 +3,7 @@
 	<meta name="title" content="Astra Business Centre - Maintenance Enquiries" />
 	<meta
 		name="description"
-		content="If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
-	/>
+		content="If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "/>
 	
 	<script type="application/ld+json">
 	[{
