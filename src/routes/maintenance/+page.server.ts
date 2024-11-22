@@ -50,7 +50,7 @@ export const actions = {
 			console.log('Message Sent!');
 		} catch (error) {
 			console.error('Error sending email\n', error);
-			return fail(422, { error: 'Something goofed, please try again!' });
+			return fail(422, { error: 'Something went wrong, please try again' });
 		}
 
 		return redirect(303, '/maintenance?success=true');

@@ -49,7 +49,7 @@ export const actions = {
 			console.log('Message sent!');
 		} catch (error) {
 			console.error('Error sending email\n', error);
-			return fail(422, { error: 'Umm, something went wrong, please try again!' });
+			return fail(422, { error: 'Something went wrong, please try again' });
 		}
 
 		return redirect(303, '/contact-us?success=true');
