@@ -4,38 +4,8 @@ import { env } from '$env/dynamic/private';
 
 export const prerender = false;
 
-interface TokenValidateResponse {
-	'error-codes': string[];
-	success: boolean;
-	action: string;
-	cdata: string;
-}
-
 function emptyString(value: string | null | undefined) {
 	return value === null || value === undefined || value.replace(/\s/g, '') === '';
-}
-
-async function validateToken(token: string, secret: string) {
-	const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-		method: 'POST',
-		headers: {
-			'content-type': 'application/json'
-		},
-		body: JSON.stringify({
-			response: token,
-			secret: secret
-		})
-	});
-
-	const data: TokenValidateResponse = await response.json();
-
-	return {
-		// Return the status
-		success: data.success,
-
-		// Return the first error if it exists
-		error: data['error-codes']?.length ? data['error-codes'][0] : null
-	};
 }
 
 /** @type {import('./$types').RequestHandler} */
@@ -46,21 +16,9 @@ export const actions = {
 		const email: string = data.get('email') as string;
 		const message: string = data.get('message') as string;
 		const unit: string = data.get('unit') as string;
-		const turnstile: string = data.get('cf-turnstile-response') as string;
-		console.log(name, email, message, unit, turnstile);
 
 		if (emptyString(name) || emptyString(email) || emptyString(message) || emptyString(unit)) {
-			// For some reason client-side verification on the unit selector DOESN'T WORK. So we will do it here.
-			return fail(422, { error: "Don't forget to select and enter your unit!" }); 
-		}
-
-		// Check the key after, saves a wasted request :)
-		const SECRET_KEY = env.CF_TURNSTILE_SECRET || '';
-		const { success, error } = await validateToken(turnstile, SECRET_KEY);
-
-		if (!success) {
-			console.log(error);
-			return fail(422, { error: "Bot validation failed :(" });
+			return fail(422, { error: "Don't forget to select and enter your unit!" });
 		}
 
 		try {
