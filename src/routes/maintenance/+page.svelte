@@ -22,7 +22,6 @@
 	import Map from '$lib/components/elements/Map.svelte';
 	import Maintenance from '$lib/assets/svg/maintenance-big.svelte';
 	import type { ActionData } from '$types';
-	import { Turnstile } from 'svelte-turnstile';
 
 	export let form: ActionData;
 	let success: string | null = $page.url.searchParams.get('success');
@@ -107,14 +106,6 @@
 					</div>
 				</div>
 				<div class="form-actions">
-					<div id="turnstile-container">
-						<Turnstile
-							siteKey="0x4AAAAAAAdaq7baunr8wH5G"
-							forms={true}
-							formsField={'cf-turnstile-response'}
-							appearance={'interaction-only'}
-						/>
-					</div>
 					<button class="button size--medium color--secondary style--solid" type="submit">Send Request</button>
 				</div>
 				<div class="form-status">
@@ -343,13 +334,6 @@
 				font-size: 1.15rem;
 			}
 		}
-	}
-
-	#turnstile-container {
-		display: flex;
-		justify-content: center;
-		transform-origin: right;
-		height: 30px;
 	}
 
 	.form-status {
