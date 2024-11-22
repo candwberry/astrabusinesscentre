@@ -46,7 +46,7 @@ export const actions = {
 			};
 
 			await transporter.sendMail(mailOptions);
-			console.log('Message sent!');
+			console.log('Message sent');
 		} catch (error) {
 			console.error('Error sending email\n', error);
 			return fail(422, { error: 'Something went wrong, please try again' });
