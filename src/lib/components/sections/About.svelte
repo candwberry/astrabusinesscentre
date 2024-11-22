@@ -21,6 +21,7 @@
 			class="main-img"
 			src="/static/jpg/astra-business-centre-office.jpg"
 			alt="Astra Business Centre"
+			loading="lazy"
 		/>
 		<svg width="300" height="300">
 			<defs>
