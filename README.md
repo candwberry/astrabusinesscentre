@@ -28,7 +28,6 @@ Visit our website, or email <a href="mailto:info@astrabusinesscentre.co.uk">info
 - [TypeScript](https://www.typescriptlang.org/) - Programming language
 - [Vite](https://vitejs.dev/) - Build tool and development server
 - [Bun](https://bun.sh/) - JavaScript runtime and package manager
-- [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) - Bot detection
 
 ### Hosting
 - [Azure Static Web Apps](https://azure.microsoft.com/en-us/services/app-service/static/) - Hosting platform
