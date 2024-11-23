@@ -54,9 +54,11 @@
 </script>
 
 <script>
-  document.querySelector('.logo.svelte-qmykfb').addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent default navigation behavior
-    window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+  document.querySelectorAll('.logo').forEach(function (element) {
+    element.addEventListener('click', function (event) {
+      event.preventDefault();
+      window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+    });
   });
 </script>
 
