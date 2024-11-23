@@ -53,9 +53,16 @@
 	});
 </script>
 
+<script>
+  document.querySelector('.logo.svelte-qmykfb').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent default navigation behavior
+    window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+  });
+</script>
+
 <header class:has-background={showBackground}>
 	<nav class="container">
-		<a class="logo" href="https://www.astrabusinesscentre.co.uk/" aria-label="Astra Business Centre">
+		<a class="logo" href="https://www.astrabusinesscentre.co.uk/" aria-label="Astra Business Centre" onclick="window.location.href='https://www.astrabusinesscentre.co.uk/'; return false;">
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>
