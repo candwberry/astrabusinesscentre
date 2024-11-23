@@ -1,13 +1,15 @@
 <script lang="ts">
 	import Logo from '$lib/components/elements/Logo.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import UnitIcon from '$lib/assets/svg/units.svelte';
 	import ContactIcon from '$lib/assets/svg/contact.svelte';
 	import Home from '$lib/assets/svg/home.svelte';
-    import Maintenance from '$lib/assets/svg/maintenance.svelte';
+	import Maintenance from '$lib/assets/svg/maintenance.svelte';
 
 	export let showBackground = false;
 	let isMenuOpen = false; 
+	let shorthand = true;
+
 	const toggleMenu = () => {
 		isMenuOpen = !isMenuOpen;
 		toggleBodyScroll(isMenuOpen);
@@ -18,12 +20,22 @@
 		toggleBodyScroll(isMenuOpen);
 	};
 
-	let shorthand = true;
-	// put a watcher for width going to 1024px;
+	function toggleBodyScroll(disable: boolean) {
+		if (disable) {
+			document.body.style.overflow = 'hidden';
+			window.scrollTo(0, 0); // Optional, depending on requirements
+			document.body.style.touchAction = 'none';
+		} else {
+			document.body.style.overflow = '';
+			document.body.style.touchAction = '';
+		}
+	}
+
 	onMount(() => {
-		isMenuOpen = false; // Set to true when testing menu changes (locally) :)
+		isMenuOpen = false; // For testing, set true locally if needed
 		const mediaQuery = window.matchMedia('(max-width: 767px)');
-		const handleTabletChange = (e: any) => {
+
+		const handleTabletChange = (e: MediaQueryListEvent) => {
 			if (e.matches) {
 				shorthand = true;
 			} else {
@@ -31,20 +43,14 @@
 				toggleBodyScroll(false);
 			}
 		};
-		mediaQuery.addListener(handleTabletChange);
-		handleTabletChange(mediaQuery);
-	});
 
-	function toggleBodyScroll(disable: boolean) {
-		if (disable) {
-			document.body.style.overflow = 'hidden';
-			window.scrollTo(0, 0);
-			document.body.style.touchAction = 'none';
-		} else {
-			document.body.style.overflow = '';
-			document.body.style.touchAction = '';
-		}
-	}
+		mediaQuery.addEventListener('change', handleTabletChange);
+		handleTabletChange(mediaQuery);
+
+		onDestroy(() => {
+			mediaQuery.removeEventListener('change', handleTabletChange);
+		});
+	});
 </script>
 
 <header class:has-background={showBackground}>
