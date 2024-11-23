@@ -86,7 +86,7 @@
 					{#if form?.error}
 						<p class="error">{form.error}</p>
 					{:else if success}
-						<p class="success">Email sent successfully! Thank you!</p>
+						<p class="success">Email sent successfully, thank you</p>
 					{:else if processing}
 						<p class="processing">Processing...</p>
 					{:else}

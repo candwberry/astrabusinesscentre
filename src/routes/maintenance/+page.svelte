@@ -84,7 +84,7 @@
 						<div class="unit-input">
 							<input
 								type="text"
-								placeholder="Please select your unit."
+								placeholder="Please select your unit"
 								id="unit"
 								name="unit"
 								bind:value={unit}
@@ -112,7 +112,7 @@
 					{#if form?.error}
 						<p class="error">{form.error}</p>
 					{:else if success}
-						<p class="success">Request sent successfully! We'll be in touch shortly.</p>
+						<p class="success">Request sent successfully, we'll be in touch soon</p>
 					{:else if processing}
 						<p class="processing">Processing...</p>
 					{:else}
