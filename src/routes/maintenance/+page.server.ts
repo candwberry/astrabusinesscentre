@@ -18,7 +18,7 @@ export const actions = {
 		const unit: string = data.get('unit') as string;
 
 		if (emptyString(name) || emptyString(email) || emptyString(message) || emptyString(unit)) {
-			return fail(422, { error: "Don't forget to select and enter your unit!" });
+			return fail(422, { error: "Don't forget to select your unit" });
 		}
 
 		try {
