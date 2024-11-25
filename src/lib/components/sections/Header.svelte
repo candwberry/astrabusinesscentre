@@ -54,12 +54,14 @@
 </script>
 
 <script>
-  document.querySelectorAll('.logo').forEach(function (element) {
-    element.addEventListener('click', function (event) {
-      event.preventDefault();
-      window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+  if (window.innerWidth > 767) {
+    document.querySelectorAll('.logo').forEach(function (element) {
+      element.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+      });
     });
-  });
+  }
 </script>
 
 <header class:has-background={showBackground}>
