@@ -66,7 +66,7 @@
 
 <header class:has-background={showBackground}>
 	<nav class="container">
-		<a class="logo" href="https://www.astrabusinesscentre.co.uk/" aria-label="Astra Business Centre" onclick="window.location.href='https://www.astrabusinesscentre.co.uk/'; return false;">
+		<a class="logo" href="/" aria-label="Astra Business Centre" onclick="window.location.href='https://www.astrabusinesscentre.co.uk/'; return false;">
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>
