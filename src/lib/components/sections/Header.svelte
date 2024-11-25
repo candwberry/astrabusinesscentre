@@ -23,7 +23,6 @@
 	function toggleBodyScroll(disable: boolean) {
 		if (disable) {
 			document.body.style.overflow = 'hidden';
-			window.scrollTo(0, 0); // Optional, depending on requirements
 			document.body.style.touchAction = 'none';
 		} else {
 			document.body.style.overflow = '';
@@ -32,7 +31,7 @@
 	}
 
 	onMount(() => {
-		isMenuOpen = false; // For testing, set true locally if needed
+		isMenuOpen = false;
 		const mediaQuery = window.matchMedia('(max-width: 767px)');
 
 		const handleTabletChange = (e: MediaQueryListEvent) => {
@@ -47,21 +46,21 @@
 		mediaQuery.addEventListener('change', handleTabletChange);
 		handleTabletChange(mediaQuery);
 
-		onDestroy(() => {
+		return () => {
 			mediaQuery.removeEventListener('change', handleTabletChange);
-		});
+		};
 	});
-</script>
 
-<script>
-  if (window.innerWidth > 767) {
-    document.querySelectorAll('.logo').forEach(function (element) {
-      element.addEventListener('click', function (event) {
-        event.preventDefault();
-        window.location.href = 'https://www.astrabusinesscentre.co.uk/';
-      });
-    });
-  }
+	onMount(() => {
+		if (window.innerWidth > 767) {
+			document.querySelectorAll('.logo').forEach((element) => {
+				element.addEventListener('click', (event) => {
+					event.preventDefault();
+					window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+				});
+			});
+		}
+	});
 </script>
 
 <header class:has-background={showBackground}>
