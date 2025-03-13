@@ -31,7 +31,7 @@ Visit our website, or email <a href="mailto:info@astrabusinesscentre.co.uk">info
 
 ### Hosting
 - [Azure Static Web Apps](https://azure.microsoft.com/en-us/services/app-service/static/) - Hosting platform
-- Azure actually uses the NodeJS runtime and npm package manager, not bun.
+- Azure uses the NodeJS runtime and npm package manager, not bun.
 
 ### Getting Started
 
@@ -42,4 +42,4 @@ To run this project locally:
 ```bun install```
 3. Start the development server:
 ```bun run dev```
-4. Go to ```localhost:5173``` 😊
+4. Go to ```localhost:5173```
