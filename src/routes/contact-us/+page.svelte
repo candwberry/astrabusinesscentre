@@ -62,6 +62,8 @@
 				action="/email?type=enquiry"
 				use:enhance={(opts) => {
 					processing = true;
+					error = null;
+					success = null;
 					return async ({ result }) => {
 						processing = false;
 						// since the result object is returned by Lambda, it has our custom object structure..
