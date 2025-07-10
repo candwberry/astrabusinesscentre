@@ -1,3 +1,28 @@
+<script lang="ts">
+	import { enhance } from "$app/forms";
+	import type { ActionData } from "$types";
+	import Contact from "$lib/assets/svg/contact-big.svelte";
+	import { browser } from "$app/environment";
+	import { Turnstile } from "svelte-turnstile";
+
+	let turnstileRef: Turnstile | null = null;
+	export let form: ActionData;
+	let success: string | null = null;
+	let error: string | null = null;
+	if (browser) {
+		success = new URLSearchParams(window.location.search).get("success");
+	}
+	let processing: boolean = false;
+	let windowSize = 712;
+
+	if (browser) {
+		windowSize = window.innerWidth;
+		window.addEventListener("resize", () => {
+			windowSize = window.innerWidth;
+		});
+	}
+</script>
+
 <svelte:head>
 	<title>Astra Business Centre - Contact Us</title>
 	<meta name="title" content="Astra Business Centre - Contact Us" />
@@ -7,58 +32,78 @@
 	/>
 
 	<script type="application/ld+json">
-	[{
-	"@context": "https://schema.org/",
-	"@type": "WebPage",
-	"name": "Astra Business Centre - Contact Us",
-	"description": "To enquire about commercial or industrial units to rent in Preston, please contact us utilising the on-page form.",
-	"image": {
-		"@type": "ImageObject",
-		"url": "https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office-enquire.jpg"
-	}
-    }]
+		[
+			{
+				"@context": "https://schema.org/",
+				"@type": "WebPage",
+				"name": "Astra Business Centre - Contact Us",
+				"description": "To enquire about commercial or industrial units to rent in Preston, please contact us utilising the on-page form.",
+				"image": {
+					"@type": "ImageObject",
+					"url": "https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office-enquire.jpg"
+				}
+			}
+		]
 	</script>
-	
 </svelte:head>
-
-<script lang="ts">
-	import { enhance } from '$app/forms';
-	import { page } from '$app/stores';
-	import type { ActionData } from '$types';
-	import Contact from '$lib/assets/svg/contact-big.svelte';
-	
-	export let form: ActionData;
-	let success: string | null = $page.url.searchParams.get('success');
-	let processing: boolean = false;
-
-	page.subscribe((value) => {
-		success = value.url.searchParams.get('success');
-	});
-</script>
 
 <main>
 	<div class="container2">
 		<div class="image-column">
-			<enhanced:img id="bigImage" src="/static/jpg/astra-business-centre-office-enquire.jpg" alt="Astra Business Centre" />
+			<enhanced:img
+				id="bigImage"
+				src="/static/jpg/astra-business-centre-office-enquire.jpg"
+				alt="Astra Business Centre"
+			/>
 		</div>
 		<div class="form-column">
 			<form
 				method="POST"
-				use:enhance={() => {
+				action="/email?type=enquiry"
+				use:enhance={(opts) => {
 					processing = true;
-					return ({ update }) => {
-						update().finally(async () => {
-							processing = false;
-						});
+					return async ({ result }) => {
+						processing = false;
+						// since the result object is returned by Lambda, it has our custom object structure..
+						console.log("Result: ", result);
+
+						if (result.message == "success") {
+							error = null;
+							success = "true";
+						} else {
+							console.error("Email sending error: ", result);
+							success = null;
+							error =
+							"An error occured, please contact us via email at: info@astrabusinesscentre.co.uk";
+						}
+						// REFRESH FORM SO TURNSTILE RESETS
+						if (turnstileRef) {
+							turnstileRef.reset();
+						}
 					};
 				}}
 			>
-				<h1><span style="margin-right: 0.6rem;"><Contact /></span>Contact Us</h1>
-				<p class="h5">Looking to rent a commercial or industrial unit that is easily accessible to major transport networks in the North West of England? Please utilise the following form to enquire about on-site availability and a member of our team will get back to you shortly.</p>
+				<h1>
+					<span style="margin-right: 0.6rem;"><Contact /></span
+					>Contact Us
+				</h1>
+				<p class="h5">
+					Looking to rent a commercial or industrial unit that is
+					easily accessible to major transport networks in the North
+					West of England? Please utilise the following form to
+					enquire about on-site availability and a member of our team
+					will get back to you shortly.
+				</p>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
-							<input type="text" id="name" name="name" placeholder="Full Name" required />
+							<input
+								type="text"
+								id="name"
+								name="name"
+								placeholder="Full Name"
+								required
+							/>
 						</div>
 						<div class="form-field">
 							<input
@@ -80,13 +125,23 @@
 					</div>
 				</div>
 				<div class="form-actions">
-					<button class="button size--medium color--secondary style--solid" type="submit">Send Enquiry</button>
+					<button
+						class="button size--medium color--secondary style--solid"
+						type="submit">Send Enquiry</button
+					>
+					<Turnstile
+						siteKey="0x4AAAAAABkch7clkqd1-cxG"
+						size={windowSize < 400 ? "compact" : "normal"}
+						bind:this={turnstileRef}
+					/>
 				</div>
 				<div class="form-status">
-					{#if form?.error}
-						<p class="error">{form.error}</p>
+					{#if error}
+						<p class="error">{error}</p>
 					{:else if success}
-						<p class="success">Email sent successfully, thank you</p>
+						<p class="success">
+							Email sent successfully, thank you
+						</p>
 					{:else if processing}
 						<p class="processing">Processing...</p>
 					{:else}
@@ -236,11 +291,13 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		z-index: 1000;
+		height: 72px;
+		gap: 4rem;
 	}
 
 	.button {
 		white-space: nowrap;
-		margin: 0 8px;
 		--main-color: red;
 		--light-color: blue;
 		--contrast-color: green;
@@ -306,7 +363,6 @@
 			&--small {
 				padding: 5px 10px;
 				font-size: 0.75rem;
-
 			}
 			&--medium {
 				padding: 10px 20px;
@@ -355,6 +411,9 @@
 	}
 
 	@media (max-width: 768px) {
+		.form-column {
+			padding-bottom: 0.5rem;
+		}
 		.form-grid {
 			grid-template-columns: 1fr;
 			gap: 0;
@@ -370,7 +429,10 @@
 
 		.form-actions {
 			flex-direction: column;
-			align-items: stretch;
+			align-items: center;
+			justify-content: center;
+			gap: 0;
+			height: fit-content;
 		}
 
 		button {
@@ -385,6 +447,7 @@
 
 		.form-column {
 			padding: 1rem;
+			padding-bottom: 0.5rem;
 		}
 
 		h1 {

@@ -35,6 +35,7 @@
 	};
 
 	let { features } = data;
+
 </script>
 
 <div class="container">

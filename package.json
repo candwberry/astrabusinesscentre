@@ -18,16 +18,20 @@
     "svelte-adapter-azure-swa": "^0.20.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "tslib": "^2.4.1",
-    "globals": "^15.0.0"
+    "globals": "^15.0.0",
+    "@types/bun": "latest"
   },
   "type": "module",
   "dependencies": {
     "@fontsource/arimo": "^4.5.11",
+    "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/enhanced-img": "^0.3.0",
     "@types/nodemailer": "^6.4.15",
-    "nodemailer": "^6.9.14"
+    "nodemailer": "^7.0.3",
+    "svelte-turnstile": "^0.11.0"
   },
   "engines": {
     "node": ">=18.7.0"
-  }
+  },
+  "module": "index.ts"
 }

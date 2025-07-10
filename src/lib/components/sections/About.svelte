@@ -1,9 +1,35 @@
 <script>
 	import Highlight from "$lib/components/elements/Highlight.svelte";
 	import Socials from "$lib/components/elements/Socials.svelte";
+	import { browser } from "$app/environment";
+	let visible = false;
+
+	// make observer console log hello when section in view
+	if (browser) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						visible = true;
+						observer.disconnect(); // Stop observing once visible
+					}
+				});
+			},
+			{
+				rootMargin: "0px",
+				threshold: 0.1, // Trigger when 10% of the section is visible
+			},
+		);
+		observer.observe(document.getElementById("about"));
+	}
 </script>
 
-<section id="about">
+<section
+	id="about"
+	style="opacity: {visible ? 1 : 0}; transform: translateY({visible
+		? 0
+		: 30}px); transition: opacity .8s ease, transform .8s ease;"
+>
 	<div class="info">
 		<h2>
 			Secure Office & Industrial Units in <Highlight color="secondary"
@@ -11,7 +37,12 @@
 			>
 		</h2>
 		<p style="margin-bottom: 1rem;">
-			<strong>Astra Business Centre</strong> provides businesses with spacious, fully secure office and industrial units that are available for lease at economical rates. Based in Preston near the Haighton Interchange, the site features meeting rooms, Wi-Fi, parking, WC facilities, kitchens, and reception areas that meet the needs of modern working practices.</p>
+			<strong>Astra Business Centre</strong> provides businesses with spacious,
+			fully secure office and industrial units that are available for lease
+			at economical rates. Based in Preston near the Haighton Interchange,
+			the site features meeting rooms, Wi-Fi, parking, WC facilities, kitchens,
+			and reception areas that meet the needs of modern working practices.
+		</p>
 		<div class="socials">
 			<Socials />
 		</div>
@@ -54,6 +85,10 @@
 	}
 
 	#about {
+		opacity: 0;
+		transition:
+			opacity 0.3s ease-in-out,
+			transform 0.5s ease;
 		position: relative;
 		display: grid;
 		grid-template-columns: calc(100% - 300px) 250px;
@@ -110,5 +145,9 @@
 				display: none;
 			}
 		}
+	}
+
+	.visisble {
+		opacity: 1;
 	}
 </style>

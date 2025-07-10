@@ -62,20 +62,20 @@
 				> path {
 					--text-color: var(--color--text-shade);
 					stroke-width: 2;
-					animation: svg-text-stroke 3s;
+					animation: svg-text-stroke 2s;
 				}
 
 				#darker {
 					> path {
 						--text-color: var(--color--text);
 						stroke-width: 2;
-						animation: svg-text-stroke 3s;
+						animation: svg-text-stroke 2s;
 					}
 				}
 			}
 
 			#text {
-				animation: svg-text-stroke 3s;
+				animation: svg-text-stroke 2s;
 				stroke-width: 2;
 				--text-color: var(--color--text-inverse);
 			}

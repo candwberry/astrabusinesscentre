@@ -4,10 +4,33 @@
 	export let description: string | undefined = undefined;
 
 	export let align: 'left' | 'top' | 'right' = 'top';
+	import { browser } from "$app/environment";
+	let visible = false;
+
+	if (browser) {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						visible = true;
+						observer.disconnect(); // Stop observing once visible
+					}
+				});
+			},
+			{
+				rootMargin: "0px",
+				threshold: 0.1, // Trigger when 10% of the section is visible
+			},
+		);
+		observer.observe(document.getElementById(id+"-title-area"));
+	}
 </script>
 
-<section {id} class="content-section {align}">
-	<div class="title-area">
+
+<section {id} class="content-section {align}" style="opacity: {visible ? 1 : 0}; transform: translateY({visible
+		? 0
+		: 30}px); transition: opacity 1s ease, transform 1s ease;">
+	<div id={id+"-title-area"} class="title-area">
 		{#if title || description}
 			<div class="text">
 				{#if title}

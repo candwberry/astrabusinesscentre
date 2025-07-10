@@ -56,7 +56,7 @@
 			document.querySelectorAll('.logo').forEach((element) => {
 				element.addEventListener('click', (event) => {
 					event.preventDefault();
-					window.location.href = 'https://www.astrabusinesscentre.co.uk/';
+					window.location.href = '/';
 				});
 			});
 		}
@@ -65,7 +65,7 @@
 
 <header class:has-background={showBackground}>
 	<nav class="container">
-		<a class="logo" href="/" aria-label="Astra Business Centre" onclick="window.location.href='https://www.astrabusinesscentre.co.uk/'; return false;">
+		<a class="logo" href="/" aria-label="Astra Business Centre">
 			<Logo {shorthand} />
 		</a>
 		<div class="links" class:open={isMenuOpen}>

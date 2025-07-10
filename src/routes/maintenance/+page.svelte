@@ -1,33 +1,22 @@
-<svelte:head>
-	<title>Astra Business Centre - Maintenance Enquiries</title>
-	<meta name="title" content="Astra Business Centre - Maintenance Enquiries" />
-	<meta
-		name="description"
-		content="If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "/>
-	
-	<script type="application/ld+json">
-	[{
-		"@context": "https://schema.org/",
-		"@type": "WebPage",
-	     "name": "Astra Business Centre - Maintenance Enquiries",
-		"description": "If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
-	}]
-	</script>
-
-</svelte:head>
-
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { page } from '$app/stores';
-	import Map from '$lib/components/elements/Map.svelte';
-	import Maintenance from '$lib/assets/svg/maintenance-big.svelte';
-	import type { ActionData } from '$types';
+	import { enhance } from "$app/forms";
+	import Map from "$lib/components/elements/Map.svelte";
+	import Maintenance from "$lib/assets/svg/maintenance-big.svelte";
+	import type { ActionData } from "$types";
+	import { browser } from "$app/environment";
+	import { Turnstile } from "svelte-turnstile";
+	import { page } from "$app/state";
 
+	let turnstileRef: Turnstile | null = null;
 	export let form: ActionData;
-	let success: string | null = $page.url.searchParams.get('success');
+	let success: string | null = null;
+	let error: string | null = null;
+	if (browser) {
+		success = new URLSearchParams(window.location.search).get("success");
+	}
 	let processing: boolean = false;
 	let map: Map;
-	let unit: string = '';
+	let unit: string = "";
 	let showModal: boolean = false;
 
 	function handleMapInput(selectedUnit: string) {
@@ -41,10 +30,38 @@
 		showModal = !showModal;
 	}
 
-	page.subscribe((value) => {
-		success = value.url.searchParams.get('success');
-	});
+	let windowSize = 712;
+	// make sure windowSize is updated on resize
+	if (browser) {
+		windowSize = window.innerWidth;
+		window.addEventListener("resize", () => {
+			windowSize = window.innerWidth;
+		});
+	}
 </script>
+
+<svelte:head>
+	<title>Astra Business Centre - Maintenance Enquiries</title>
+	<meta
+		name="title"
+		content="Astra Business Centre - Maintenance Enquiries"
+	/>
+	<meta
+		name="description"
+		content="If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
+	/>
+
+	<script type="application/ld+json">
+		[
+			{
+				"@context": "https://schema.org/",
+				"@type": "WebPage",
+				"name": "Astra Business Centre - Maintenance Enquiries",
+				"description": "If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance, please utilise the on-page form. "
+			}
+		]
+	</script>
+</svelte:head>
 
 <div class="main">
 	<div class="container2">
@@ -54,21 +71,50 @@
 		<div class="form-column">
 			<form
 				method="POST"
-				use:enhance={() => {
+				action="/email?type=maintenance"
+				use:enhance={(opts) => {
 					processing = true;
-					return ({ update }) => {
-						update().finally(async () => {
-							processing = false;
-						});
+					return async ({ result }) => {
+						processing = false;
+						// since the result object is returned by Lambda, it has our custom object structure..
+						console.log("Result: ", result);
+
+						if (result.message == "success") {
+							error = null;
+							success = "true";
+						} else {
+							console.error("Email sending error: ", result);
+							success = null;
+							error =
+							"An error occured, please contact us via email at: info@astrabusinesscentre.co.uk";
+						}
+						// REFRESH FORM SO TURNSTILE RESETS
+						if (turnstileRef) {
+							turnstileRef.reset();
+						}
 					};
 				}}
 			>
-				<h1><span style="margin-right: 0.6rem;"><Maintenance /></span>Got a problem?</h1>
-				<p class="h5">If you are a current tenant at Astra Business Centre and you have an enquiry related to the maintenance of your unit or office, please complete the form below and a member of our facilities team will get back to you as soon as possible.</p>
+				<h1>
+					<span style="margin-right: 0.6rem;"><Maintenance /></span
+					>Got a problem?
+				</h1>
+				<p class="h5">
+					If you are a current tenant at Astra Business Centre and you
+					have an enquiry related to the maintenance of your unit or
+					office, please complete the form below and a member of our
+					facilities team will get back to you as soon as possible.
+				</p>
 				<div style="margin: auto 0;">
 					<div class="form-grid">
 						<div class="form-field">
-							<input type="text" id="name" name="name" placeholder="Company Name" required />
+							<input
+								type="text"
+								id="name"
+								name="name"
+								placeholder="Company Name"
+								required
+							/>
 						</div>
 						<div class="form-field">
 							<input
@@ -91,8 +137,10 @@
 								readonly
 								required
 							/>
-							<button class="button select-unit-btn size--medium color--primary style--solid" type="button" on:click={toggleModal}
-								>Select Unit</button
+							<button
+								class="button select-unit-btn size--medium color--primary style--solid"
+								type="button"
+								on:click={toggleModal}>Select Unit</button
 							>
 						</div>
 					</div>
@@ -106,13 +154,23 @@
 					</div>
 				</div>
 				<div class="form-actions">
-					<button class="button size--medium color--secondary style--solid" type="submit">Send Request</button>
+					<button
+						class="button size--medium color--secondary style--solid"
+						type="submit">Send Request</button
+					>
+					<Turnstile
+						siteKey="0x4AAAAAABkch7clkqd1-cxG"
+						size={windowSize < 400 ? "compact" : "normal"}
+						bind:this={turnstileRef}
+					/>
 				</div>
 				<div class="form-status">
-					{#if form?.error}
-						<p class="error">{form.error}</p>
+					{#if error}
+						<p class="error">{error}</p>
 					{:else if success}
-						<p class="success">Request sent successfully, we'll be in touch soon</p>
+						<p class="success">
+							Request sent successfully, we'll be in touch soon
+						</p>
 					{:else if processing}
 						<p class="processing">Processing...</p>
 					{:else}
@@ -249,11 +307,12 @@
 		justify-content: space-between;
 		align-items: center;
 		z-index: 1000;
+		height: 72px;
+		gap: 4rem;
 	}
 
 	.button {
 		white-space: nowrap;
-		margin: 0 8px;
 		--main-color: red;
 		--light-color: blue;
 		--contrast-color: green;
@@ -434,6 +493,10 @@
 		}
 	}
 	@media (max-width: 768px) {
+		.form-column {
+			padding-bottom: 0.5rem;
+		}
+
 		.form-grid {
 			grid-template-columns: 1fr;
 			gap: 0;
@@ -449,7 +512,10 @@
 
 		.form-actions {
 			flex-direction: column;
-			align-items: stretch;
+			align-items: center;
+			justify-content: center;
+			gap: 0;
+			height: fit-content;
 		}
 
 		button {
@@ -465,6 +531,7 @@
 		.map-column,
 		.form-column {
 			padding: 1rem;
+			padding-bottom: 0.5rem;
 		}
 
 		h1 {

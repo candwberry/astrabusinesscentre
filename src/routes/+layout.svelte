@@ -3,6 +3,7 @@
 -->
 
 <script>
+	export const prerender = true;
 	import '$lib/assets/css/global.scss';
 	import Waves from '$lib/components/elements/Waves.svelte';
 	import Header from '$lib/components/sections/Header.svelte';
