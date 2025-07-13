@@ -20,7 +20,11 @@
 				threshold: 0.1, // Trigger when 10% of the section is visible
 			},
 		);
-		observer.observe(document.getElementById("about"));
+		try {
+			observer.observe(document.getElementById("about"));
+		} catch (error) {
+			console.error("Observer error:", error);
+		}
 	}
 </script>
 

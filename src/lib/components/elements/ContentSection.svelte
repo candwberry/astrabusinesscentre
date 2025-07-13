@@ -22,7 +22,11 @@
 				threshold: 0.1, // Trigger when 10% of the section is visible
 			},
 		);
-		observer.observe(document.getElementById(id+"-title-area"));
+		try {
+			observer.observe(document.getElementById(id+"-title-area"));
+		} catch (error) {
+			console.error("Observer error:", error);
+		}
 	}
 </script>
 
