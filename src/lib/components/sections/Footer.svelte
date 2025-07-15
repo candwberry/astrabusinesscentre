@@ -20,7 +20,7 @@
 
 <style lang="scss">
 	footer {
-		height: 270px;
+		height: 220px;
 		width: 100%;
 		background-color: #202b67;
 

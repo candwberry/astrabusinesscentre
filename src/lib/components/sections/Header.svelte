@@ -120,7 +120,7 @@
 		border: none;
 		cursor: pointer;
 		padding: 0;
-		z-index: 10000;
+		z-index: 9990;
 	}
 	.hamburger span {
 		width: 2em;
@@ -191,8 +191,8 @@
 					position: fixed;
 					top: 0;
 					right: 0;
-					height: 100vh;
-					width: 100vw;
+					height: 100%;
+					width: 100%;
 					transition: transform 0.3s ease-in-out;
 					z-index: 10;
 					transform: translateX(100%);

@@ -23,6 +23,7 @@
 		try {
 			observer.observe(document.getElementById("about"));
 		} catch (error) {
+			visible = true; // Fallback to visible if observer fails
 			console.error("Observer error:", error);
 		}
 	}

@@ -25,6 +25,7 @@
 		try {
 			observer.observe(document.getElementById(id+"-title-area"));
 		} catch (error) {
+			visible = true; // Fallback to visible if observer fails
 			console.error("Observer error:", error);
 		}
 	}

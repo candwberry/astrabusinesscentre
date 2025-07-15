@@ -32,23 +32,46 @@
 				y="5"
 				fill="rgba(var(--color--page-background-rgb),0.3)"
 			/>
-			<use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color--page-background)" />
+			<use
+				xlink:href="#gentle-wave"
+				x="48"
+				y="7"
+				fill="var(--color--page-background)"
+			/>
 		</g>
 	</svg>
 </div>
 
 <style lang="scss">
-	@import '$lib/assets/css/_breakpoints.scss';
+	@import "$lib/assets/css/_breakpoints.scss";
 	.waves-container {
-		background: linear-gradient(60deg, var(--color--waves-start) 0%, var(--color--waves-end) 100%);
+		background: linear-gradient(
+			60deg,
+			var(--color--waves-start) 0%,
+			var(--color--waves-end) 100%
+		);
 		position: absolute;
 		width: 100%;
 		height: min(65vh, 500px);
 
 		@include for-phone-only {
 			height: min(68vh, 490px);
+
 		}
 	}
+
+	/*.waves-container::before{
+		@include for-phone-only {
+			content: "";
+			position: absolute;
+			inset: 0;
+			opacity: 0.05;
+			z-index: 0;
+			background-image: url(https://www.astrabusinesscentre.co.uk/jpg/astra-business-centre-office.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	}*/
 
 	.waves {
 		position: absolute;
@@ -66,7 +89,8 @@
 	/* Animation */
 	.parallax > use {
 		@media screen and (prefers-reduced-motion: no-preference) {
-			animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+			animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5)
+				infinite;
 		}
 	}
 	.parallax > use:nth-child(1) {
